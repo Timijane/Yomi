@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#1A0F2E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- ============ PRIMARY SEO ============ -->
     <title>Pastor Yomi Okewunmi (PY) — Minister, Scholar, Author & Visionary Leader</title>
@@ -53,14 +56,8 @@
             "name": "Abeokuta, Ogun State, Nigeria"
         },
         "alumniOf": [
-            {
-                "@type": "CollegeOrUniversity",
-                "name": "University of Ibadan"
-            },
-            {
-                "@type": "CollegeOrUniversity",
-                "name": "The Polytechnic Ibadan"
-            }
+            { "@type": "CollegeOrUniversity", "name": "University of Ibadan" },
+            { "@type": "CollegeOrUniversity", "name": "The Polytechnic Ibadan" }
         ],
         "knowsAbout": ["Ministry", "Youth Empowerment", "Leadership Development", "Philosophy", "Education", "African Identity"],
         "author": {
@@ -154,6 +151,7 @@
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -163,32 +161,37 @@
             line-height: 1.7;
             overflow-x: hidden;
             cursor: default;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
 
-        /* Custom Cursor */
-        .custom-cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--royal-gold);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99999;
-            transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
+        /* Custom Cursor - Desktop Only */
+        @media (hover: hover) and (pointer: fine) {
+            .custom-cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--royal-gold);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 99999;
+                transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+                display: block;
+            }
+            .custom-cursor.hover {
+                width: 50px;
+                height: 50px;
+                background: rgba(200,150,62,0.2);
+                border-color: var(--royal-gold-light);
+            }
+            .custom-cursor.hidden {
+                opacity: 0;
+            }
         }
-        .custom-cursor.hover {
-            width: 50px;
-            height: 50px;
-            background: rgba(200,150,62,0.2);
-            border-color: var(--royal-gold-light);
-        }
-        .custom-cursor.hidden {
-            opacity: 0;
-        }
-        @media (max-width: 768px) {
-            .custom-cursor { display: none; }
+        @media (max-width: 768px), (hover: none) {
+            .custom-cursor { display: none !important; }
         }
 
         /* Loading Screen */
@@ -203,7 +206,7 @@
             align-items: center;
             justify-content: center;
             z-index: 999999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         .loader-wrapper.hidden {
             opacity: 0;
@@ -212,27 +215,46 @@
         }
         .loader-content {
             text-align: center;
+            position: relative;
+        }
+        .loader-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid rgba(200,150,62,0.5);
+            animation: loaderZoom 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(200,150,62,0.3);
+        }
+        .loader-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes loaderZoom {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(200,150,62,0.3); }
+            50% { transform: scale(1.15); box-shadow: 0 0 70px rgba(200,150,62,0.5); }
         }
         .loader-logo {
             font-family: var(--font-elegant);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--royal-gold);
             letter-spacing: 0.15em;
-            animation: loaderPulse 1.5s ease-in-out infinite;
         }
         .loader-subtitle {
             color: var(--ivory);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 0.3em;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
             opacity: 0.7;
         }
         .loader-bar {
-            width: 200px;
+            width: 160px;
             height: 2px;
             background: rgba(200,150,62,0.2);
-            margin: 1.5rem auto 0;
+            margin: 1.2rem auto 0;
             border-radius: 2px;
             overflow: hidden;
         }
@@ -242,10 +264,6 @@
             border-radius: 2px;
             animation: loaderBar 1.8s ease-in-out infinite;
             width: 0%;
-        }
-        @keyframes loaderPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.03); }
         }
         @keyframes loaderBar {
             0% { width: 0%; margin-left: 0; }
@@ -270,7 +288,7 @@
             background: rgba(26,15,46,0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 2rem;
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
             border-bottom: 1px solid rgba(200,150,62,0.15);
         }
@@ -282,6 +300,7 @@
             letter-spacing: 0.08em;
             text-decoration: none;
             transition: color 0.3s;
+            z-index: 10001;
         }
         .nav-logo span {
             color: var(--royal-gold);
@@ -344,6 +363,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 10001;
         }
         @media (max-width: 1024px) {
             .nav-links {
@@ -352,19 +372,31 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
+                height: -webkit-fill-available;
                 background: var(--royal-dark);
                 flex-direction: column;
                 padding: 6rem 2rem 2rem;
                 gap: 1.5rem;
                 transition: right 0.4s var(--transition-smooth);
                 box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+                overflow-y: auto;
             }
             .nav-links.active {
                 right: 0;
             }
             .mobile-toggle {
                 display: block;
-                z-index: 10001;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem 1.2rem;
+            }
+            .navbar.scrolled {
+                padding: 0.6rem 1.2rem;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
             }
         }
 
@@ -373,20 +405,34 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             background: var(--royal-dark);
             overflow: hidden;
         }
-        .hero-bg {
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            transform: scale(1.1);
+        }
+        .hero-slide.active {
             opacity: 0.35;
-            z-index: 0;
+            transform: scale(1);
         }
         .hero-overlay {
             position: absolute;
@@ -404,6 +450,30 @@
             width: 100%;
             height: 100%;
             z-index: 2;
+        }
+        .hero-slide-indicators {
+            position: absolute;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 0.6rem;
+        }
+        .hero-slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            padding: 0;
+        }
+        .hero-slide-dot.active {
+            background: var(--royal-gold);
+            width: 30px;
+            border-radius: 10px;
         }
         .hero-content {
             position: relative;
@@ -452,7 +522,7 @@
             margin-bottom: 0.3rem;
         }
         .hero-title {
-            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
             color: rgba(255,255,255,0.7);
             font-weight: 400;
             line-height: 1.6;
@@ -483,6 +553,9 @@
             cursor: pointer;
             border: none;
             font-family: var(--font-body);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            white-space: nowrap;
         }
         .btn-primary {
             background: var(--royal-gold);
@@ -493,6 +566,10 @@
             background: var(--royal-gold-light);
             transform: translateY(-3px);
             box-shadow: var(--shadow-gold-lg);
+        }
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-gold);
         }
         .btn-outline {
             background: transparent;
@@ -525,6 +602,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
         .hero-image-glow {
             position: absolute;
@@ -547,16 +625,16 @@
         }
         .scroll-indicator {
             position: absolute;
-            bottom: 2rem;
+            bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
             z-index: 3;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             color: rgba(255,255,255,0.6);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 0.1em;
             animation: bounceDown 2s ease-in-out infinite;
         }
@@ -571,25 +649,53 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding-top: 6rem;
+                padding: 7rem 1.5rem 3rem;
+                gap: 2rem;
             }
             .hero-image-frame {
-                max-width: 280px;
-                margin: 1rem auto 0;
+                max-width: 240px;
+                margin: 0 auto;
                 order: -1;
             }
             .hero-buttons {
                 justify-content: center;
             }
+            .hero-slide-indicators {
+                bottom: 4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 6rem 1rem 2.5rem;
+                gap: 1.5rem;
+            }
+            .hero-image-frame {
+                max-width: 200px;
+            }
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            .hero-slide-indicators {
+                bottom: 3.5rem;
+                gap: 0.4rem;
+            }
+            .hero-slide-dot {
+                width: 8px;
+                height: 8px;
+            }
+            .hero-slide-dot.active {
+                width: 24px;
+            }
         }
 
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
         .section-tag {
             display: inline-block;
@@ -602,7 +708,7 @@
         }
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
             font-weight: 700;
             color: var(--royal-dark);
             line-height: 1.2;
@@ -615,14 +721,24 @@
             margin: 0 auto;
             border-radius: 3px;
         }
+        @media (max-width: 480px) {
+            section {
+                padding: 3.5rem 1rem;
+            }
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+        }
 
-        /* Quote Banner */
+        /* Quote Banner - BLACK TEXT */
         .quote-banner {
-            background: var(--royal-dark);
+            background: var(--white);
             position: relative;
             overflow: hidden;
             padding: 5rem 2rem;
             text-align: center;
+            border-top: 1px solid var(--ivory-dark);
+            border-bottom: 1px solid var(--ivory-dark);
         }
         .quote-banner-bg {
             position: absolute;
@@ -631,7 +747,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.15;
+            opacity: 0.06;
         }
         .quote-content {
             position: relative;
@@ -641,23 +757,24 @@
         }
         .quote-mark {
             font-family: var(--font-display);
-            font-size: 6rem;
+            font-size: 5rem;
             color: var(--royal-gold);
-            opacity: 0.5;
+            opacity: 0.4;
             line-height: 0.5;
         }
         .quote-text {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 3vw, 2.2rem);
             font-style: italic;
-            color: var(--white);
+            color: var(--rich-black);
             line-height: 1.4;
             margin: 1rem 0;
         }
         .quote-author {
-            color: var(--royal-gold);
+            color: var(--royal-gold-dark);
             font-weight: 600;
             letter-spacing: 0.05em;
+            font-size: 1rem;
         }
 
         /* About Preview */
@@ -693,6 +810,7 @@
             color: var(--gray-600);
             margin-bottom: 1rem;
             line-height: 1.8;
+            font-size: 0.95rem;
         }
         @media (max-width: 768px) {
             .about-grid {
@@ -709,8 +827,8 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
         }
         .ministry-card {
             background: var(--white);
@@ -722,6 +840,7 @@
             border: 1px solid transparent;
             position: relative;
             overflow: hidden;
+            cursor: default;
         }
         .ministry-card::before {
             content: '';
@@ -768,8 +887,16 @@
         }
         .ministry-card p {
             color: var(--gray-600);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
+        }
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .ministry-card {
+                padding: 2rem 1.5rem;
+            }
         }
 
         /* Book Section */
@@ -804,7 +931,7 @@
         }
         .book-details h3 {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
             color: var(--royal-dark);
             margin-bottom: 0.5rem;
         }
@@ -818,14 +945,19 @@
             color: var(--gray-600);
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            font-size: 0.95rem;
         }
         @media (max-width: 768px) {
             .book-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                text-align: center;
             }
             .book-cover-inner {
-                max-width: 280px;
+                max-width: 260px;
+                margin: 0 auto;
+            }
+            .book-details .btn {
                 margin: 0 auto;
             }
         }
@@ -859,14 +991,14 @@
         }
         .cta-content h2 {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
             color: var(--white);
             margin-bottom: 1rem;
         }
         .cta-content p {
             color: rgba(255,255,255,0.7);
             margin-bottom: 2rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         /* Footer */
@@ -891,6 +1023,7 @@
             justify-content: center;
             gap: 1.2rem;
             margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
         .footer-social a {
             width: 45px;
@@ -904,6 +1037,7 @@
             font-size: 1.2rem;
             transition: all 0.3s;
             text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
         }
         .footer-social a:hover {
             background: var(--royal-gold);
@@ -921,17 +1055,10 @@
             border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 0.85rem;
         }
-
-        /* Skeleton Loading */
-        .skeleton {
-            background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s ease-in-out infinite;
-            border-radius: 8px;
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+        @media (max-width: 480px) {
+            footer {
+                padding: 3rem 1rem 1.5rem;
+            }
         }
 
         /* Lazy load fade */
@@ -945,12 +1072,18 @@
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
+    <!-- Custom Cursor (Desktop only) -->
     <div class="custom-cursor" id="customCursor"></div>
 
     <!-- Loading Screen -->
     <div class="loader-wrapper" id="loader">
         <div class="loader-content">
+            <div class="loader-image-container">
+                <img 
+                    src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" 
+                    alt="Pastor Yomi Okewunmi"
+                >
+            </div>
             <div class="loader-logo">PY</div>
             <div class="loader-subtitle">PASTOR YOMI OKEWUNMI</div>
             <div class="loader-bar">
@@ -974,15 +1107,26 @@
         </button>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with 4-Image Slideshow -->
     <section class="hero" id="home">
-        <img 
-            data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" 
-            alt="Pastor Yomi Okewunmi" 
-            class="hero-bg lazy"
-        >
+        <!-- Background Slideshow -->
+        <div class="hero-slides" id="heroSlides">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="Pastor Yomi Okewunmi" class="hero-slide active">
+            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="Pastor Yomi ministering" class="hero-slide lazy">
+            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704666652_ti6jeg.jpg" alt="Pastor Yomi at event" class="hero-slide lazy">
+            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704595241_vnxoob.jpg" alt="Pastor Yomi speaking" class="hero-slide lazy">
+        </div>
         <div class="hero-overlay"></div>
         <canvas class="hero-particles" id="particleCanvas"></canvas>
+        
+        <!-- Slide Indicators -->
+        <div class="hero-slide-indicators" id="slideIndicators">
+            <button class="hero-slide-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="hero-slide-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="hero-slide-dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="hero-slide-dot" data-index="3" aria-label="Slide 4"></button>
+        </div>
+
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">MINISTER • SCHOLAR • AUTHOR</div>
@@ -1007,9 +1151,8 @@
             <div class="hero-image-wrapper">
                 <div class="hero-image-frame">
                     <img 
-                        data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg" 
-                        alt="Pastor Yomi Okewunmi Portrait" 
-                        class="lazy"
+                        src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg" 
+                        alt="Pastor Yomi Okewunmi Portrait"
                     >
                     <div class="hero-image-glow"></div>
                 </div>
@@ -1021,7 +1164,7 @@
         </div>
     </section>
 
-    <!-- Quote Banner -->
+    <!-- Quote Banner - BLACK TEXT -->
     <section class="quote-banner">
         <img 
             data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" 
@@ -1212,7 +1355,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
-            }, 1200);
+            }, 1800);
         });
 
         // ============ AOS INIT ============
@@ -1220,12 +1363,13 @@
             duration: 800,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 80,
+            offset: 60,
+            disable: false,
         });
 
-        // ============ CUSTOM CURSOR ============
+        // ============ CUSTOM CURSOR (Desktop only) ============
         const cursor = document.getElementById('customCursor');
-        if (cursor && window.innerWidth > 768) {
+        if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = e.clientX + 'px';
                 cursor.style.top = e.clientY + 'px';
@@ -1233,12 +1377,76 @@
             document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
             document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
             
-            const hoverables = document.querySelectorAll('a, button, .btn, .ministry-card, .book-cover-inner, input, textarea');
+            const hoverables = document.querySelectorAll('a, button, .btn, .ministry-card, .book-cover-inner, .hero-slide-dot');
             hoverables.forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
             });
         }
+
+        // ============ HERO SLIDESHOW ============
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-slide-dot');
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 5000; // 5 seconds per slide
+
+        // Lazy-load slides that aren't active
+        function loadSlide(index) {
+            const slide = slides[index];
+            if (slide.dataset.src && !slide.src) {
+                slide.src = slide.dataset.src;
+                slide.classList.add('loaded');
+            }
+        }
+
+        function goToSlide(index) {
+            // Remove active from all
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            // Set new active
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+            
+            // Preload adjacent slides
+            loadSlide(index);
+            const next = (index + 1) % slides.length;
+            const prev = (index - 1 + slides.length) % slides.length;
+            loadSlide(next);
+            loadSlide(prev);
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        }
+
+        // Preload first 2 slides immediately
+        loadSlide(0);
+        loadSlide(1);
+
+        // Start autoplay
+        slideInterval = setInterval(nextSlide, slideDuration);
+
+        // Dot click handlers
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index);
+                goToSlide(index);
+                // Reset interval on manual click
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, slideDuration);
+            });
+        });
+
+        // Pause on hover (desktop)
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        heroSection.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        });
 
         // ============ NAVBAR SCROLL ============
         const navbar = document.getElementById('navbar');
@@ -1248,7 +1456,7 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
 
         // ============ MOBILE NAV ============
         const mobileToggle = document.getElementById('mobileToggle');
@@ -1259,9 +1467,11 @@
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                document.body.style.overflow = '';
             }
         });
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -1269,6 +1479,7 @@
                 navLinks.classList.remove('active');
                 mobileToggle.querySelector('i').classList.remove('fa-times');
                 mobileToggle.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
             });
         });
 
@@ -1278,6 +1489,8 @@
             const ctx = canvas.getContext('2d');
             let particles = [];
             let animationId;
+            let mouseX = -1000;
+            let mouseY = -1000;
 
             function resizeCanvas() {
                 canvas.width = canvas.parentElement.offsetWidth;
@@ -1287,6 +1500,17 @@
             window.addEventListener('resize', () => {
                 resizeCanvas();
                 initParticles();
+            });
+
+            // Track mouse for particle attraction
+            canvas.parentElement.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+            canvas.parentElement.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
             });
 
             function initParticles() {
@@ -1300,19 +1524,43 @@
                         speedX: (Math.random() - 0.5) * 0.4,
                         speedY: (Math.random() - 0.5) * 0.4,
                         opacity: Math.random() * 0.5 + 0.2,
+                        originalX: 0,
+                        originalY: 0,
                     });
+                    particles[i].originalX = particles[i].x;
+                    particles[i].originalY = particles[i].y;
                 }
             }
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 particles.forEach((p, i) => {
+                    // Gentle attraction toward mouse
+                    const dxMouse = mouseX - p.x;
+                    const dyMouse = mouseY - p.y;
+                    const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                    if (distMouse < 150 && distMouse > 0) {
+                        p.x += dxMouse * 0.01;
+                        p.y += dyMouse * 0.01;
+                    } else {
+                        p.x += (p.originalX - p.x) * 0.02;
+                        p.y += (p.originalY - p.y) * 0.02;
+                    }
+
                     p.x += p.speedX;
                     p.y += p.speedY;
+                    
                     if (p.x < 0) p.x = canvas.width;
                     if (p.x > canvas.width) p.x = 0;
                     if (p.y < 0) p.y = canvas.height;
                     if (p.y > canvas.height) p.y = 0;
+
+                    p.originalX += p.speedX;
+                    p.originalY += p.speedY;
+                    if (p.originalX < 0) p.originalX = canvas.width;
+                    if (p.originalX > canvas.width) p.originalX = 0;
+                    if (p.originalY < 0) p.originalY = canvas.height;
+                    if (p.originalY > canvas.height) p.originalY = 0;
 
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -1347,12 +1595,14 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.onload = () => img.classList.add('loaded');
-                    img.onerror = () => {
-                        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" fill="%23E5E7EB"><rect width="400" height="500"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="%239CA3AF" font-size="16">Image Loading...</text></svg>';
-                        img.classList.add('loaded');
-                    };
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.onload = () => img.classList.add('loaded');
+                        img.onerror = () => {
+                            img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" fill="%23E5E7EB"><rect width="400" height="300"/></svg>';
+                            img.classList.add('loaded');
+                        };
+                    }
                     observer.unobserve(img);
                 }
             });
@@ -1360,7 +1610,7 @@
 
         lazyImages.forEach(img => imageObserver.observe(img));
 
-        // ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
+        // ============ SMOOTH SCROLL ============
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
@@ -1373,10 +1623,34 @@
             });
         });
 
-        console.log('%c PY Digital Legacy Platform %c Loaded Successfully ',
-            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:14px;border-radius:4px 0 0 4px;',
-            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:14px;border-radius:0 4px 4px 0;');
-        console.log('%c Built by Triangle Tech %c | %c pastor Yomi Okewunmi',
+        // ============ TOUCH SWIPE FOR HERO (Mobile) ============
+        let touchStartX = 0;
+        let touchEndX = 0;
+        heroSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        heroSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                clearInterval(slideInterval);
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    const next = (currentSlide + 1) % slides.length;
+                    goToSlide(next);
+                } else {
+                    // Swipe right - previous slide
+                    const prev = (currentSlide - 1 + slides.length) % slides.length;
+                    goToSlide(prev);
+                }
+                slideInterval = setInterval(nextSlide, slideDuration);
+            }
+        });
+
+        console.log('%c PY Digital Legacy %c Loaded ',
+            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
+            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
+        console.log('%c Built by Triangle Tech %c • %c Pastor Yomi Okewunmi',
             'color:#C8963E;', '', 'color:#0D6B4A;');
     </script>
 </body>
