@@ -42,10 +42,7 @@
         "description": "Dynamic minister, scholar, mentor, author, and visionary leader from Abeokuta, Ogun State.",
         "url": "https://pastoryomiokewunmi.com",
         "image": "https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg",
-        "sameAs": [
-            "https://www.facebook.com/yomi.okewunmi",
-            "https://www.instagram.com/yomi_okewunmi"
-        ],
+        "sameAs": ["https://www.facebook.com/yomi.okewunmi", "https://www.instagram.com/yomi_okewunmi"],
         "jobTitle": "Resident Pastor, Author, Scholar",
         "worksFor": { "@type": "Organization", "name": "SPAC Church Worldwide" },
         "homeLocation": { "@type": "Place", "name": "Abeokuta, Ogun State, Nigeria" },
@@ -108,22 +105,20 @@
             --shadow-xl: 0 20px 50px -6px rgba(0,0,0,0.1), 0 8px 20px -8px rgba(0,0,0,0.06);
             --shadow-gold: 0 10px 40px -10px rgba(200,150,62,0.3);
             --shadow-gold-lg: 0 25px 60px -15px rgba(200,150,62,0.35);
+            
+            /* Prevent layout shift from scrollbar */
+            --scrollbar-width: 0px;
         }
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Compensate for scrollbar disappearance on mobile menu open */
         html {
             scroll-behavior: smooth;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-tap-highlight-color: transparent;
+            /* Always show scrollbar to prevent layout shift */
+            overflow-y: scroll;
         }
 
         body {
@@ -136,6 +131,15 @@
             min-height: 100vh;
             min-height: -webkit-fill-available;
             padding-top: 0;
+            /* Never remove scrollbar */
+            overflow-y: scroll;
+        }
+
+        /* When menu is open, prevent body scroll WITHOUT removing scrollbar */
+        body.menu-open {
+            position: fixed;
+            width: 100%;
+            top: 0;
         }
 
         /* ============ APPLE-STYLE NAVIGATION ============ */
@@ -149,10 +153,10 @@
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 100px;
-            padding: 0.65rem 0.5rem;
+            padding: 0.6rem 0.4rem;
             display: flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.1rem;
             border: 1px solid rgba(255,255,255,0.12);
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             transition: all 0.4s var(--transition-smooth);
@@ -179,14 +183,12 @@
             flex-shrink: 0;
             transition: color 0.3s;
         }
-        .nav-logo span {
-            color: var(--royal-gold);
-        }
+        .nav-logo span { color: var(--royal-gold); }
         .nav-links {
             display: flex;
             list-style: none;
             align-items: center;
-            gap: 0.15rem;
+            gap: 0.1rem;
         }
         .nav-links a {
             color: rgba(255,255,255,0.8);
@@ -200,141 +202,156 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.08);
-            color: var(--white);
-        }
-        .nav-links a.active {
-            background: rgba(200,150,62,0.2);
-            color: var(--royal-gold);
-        }
+        .nav-links a:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+        .nav-links a.active { background: rgba(200,150,62,0.2); color: var(--royal-gold); }
         .nav-cta {
             background: var(--royal-gold) !important;
             color: var(--white) !important;
             font-weight: 600 !important;
-            padding: 0.55rem 1.3rem !important;
-            margin-left: 0.25rem;
+            padding: 0.5rem 1.2rem !important;
+            margin-left: 0.2rem;
         }
-        .nav-cta:hover {
-            background: var(--royal-gold-light) !important;
-            box-shadow: var(--shadow-gold);
-        }
+        .nav-cta:hover { background: var(--royal-gold-light) !important; box-shadow: var(--shadow-gold); }
+        
+        /* Mobile hamburger - hidden by default, shown on small screens */
         .mobile-toggle {
             display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            flex-shrink: 0;
+            border-radius: 50%;
+            transition: background 0.3s;
         }
+        .mobile-toggle:hover { background: rgba(255,255,255,0.1); }
 
-        /* Mobile: compact pill nav */
+        /* Mobile: show hamburger, hide some links */
         @media (max-width: 768px) {
             .navbar {
-                top: 0.75rem;
-                padding: 0.5rem 0.35rem;
-                gap: 0.1rem;
-                border-radius: 100px;
+                top: 0.6rem;
+                padding: 0.5rem 0.5rem;
+                justify-content: space-between;
             }
-            .nav-logo {
+            .nav-logo { font-size: 1.1rem; padding: 0.35rem 0.7rem; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+            
+            /* Hide regular nav links, we'll use a mobile drawer */
+            .nav-links { display: none; }
+            
+            /* Mobile Drawer */
+            .mobile-drawer-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 9998;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+            }
+            .mobile-drawer-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .mobile-drawer {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                height: -webkit-fill-available;
+                background: var(--royal-dark);
+                z-index: 9999;
+                padding: 5rem 1.5rem 2rem;
+                transition: right 0.35s var(--transition-smooth);
+                border-left: 1px solid rgba(200,150,62,0.2);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .mobile-drawer.active { right: 0; }
+            .mobile-drawer a {
+                display: block;
+                color: rgba(255,255,255,0.85);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+                border-radius: 12px;
+                transition: all 0.3s;
+                letter-spacing: 0.03em;
+            }
+            .mobile-drawer a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+            .mobile-drawer a.active { background: rgba(200,150,62,0.15); color: var(--royal-gold); }
+            .mobile-drawer .mobile-cta {
+                background: var(--royal-gold) !important;
+                color: var(--white) !important;
+                text-align: center;
+                margin-top: 0.5rem;
+                font-weight: 600 !important;
+            }
+            .mobile-drawer-close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: rgba(255,255,255,0.1);
+                border: none;
+                color: var(--white);
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
                 font-size: 1.1rem;
-                padding: 0.35rem 0.7rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.3s;
             }
-            .nav-links a {
-                font-size: 0.78rem;
-                padding: 0.45rem 0.8rem;
-            }
-            .nav-cta {
-                padding: 0.45rem 1rem !important;
-                font-size: 0.78rem !important;
-            }
+            .mobile-drawer-close:hover { background: rgba(255,255,255,0.2); }
         }
         @media (max-width: 480px) {
             .navbar {
-                top: 0.5rem;
-                padding: 0.4rem 0.3rem;
-                gap: 0;
+                top: 0.4rem;
+                padding: 0.4rem 0.4rem;
             }
-            .nav-logo {
-                font-size: 1rem;
-                padding: 0.3rem 0.5rem;
-            }
-            .nav-links a {
-                font-size: 0.72rem;
-                padding: 0.4rem 0.6rem;
-            }
-            .nav-cta {
-                padding: 0.4rem 0.8rem !important;
-                font-size: 0.72rem !important;
-            }
+            .nav-logo { font-size: 1rem; padding: 0.3rem 0.5rem; }
+            .mobile-drawer { width: 260px; }
         }
 
         /* ============ LOADING SCREEN ============ */
         .loader-wrapper {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: var(--royal-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             z-index: 999999;
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
-        .loader-wrapper.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .loader-content {
-            text-align: center;
-            position: relative;
-        }
+        .loader-wrapper.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-content { text-align: center; }
         .loader-image-container {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 120px; height: 120px;
+            border-radius: 50%; overflow: hidden;
             margin: 0 auto 2rem;
             border: 3px solid rgba(200,150,62,0.5);
             animation: loaderZoom 2s ease-in-out infinite;
             box-shadow: 0 0 40px rgba(200,150,62,0.3);
         }
-        .loader-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .loader-image-container img { width: 100%; height: 100%; object-fit: cover; }
         @keyframes loaderZoom {
             0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(200,150,62,0.3); }
             50% { transform: scale(1.15); box-shadow: 0 0 70px rgba(200,150,62,0.5); }
         }
-        .loader-logo {
-            font-family: var(--font-elegant);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--royal-gold);
-            letter-spacing: 0.15em;
-        }
-        .loader-subtitle {
-            color: var(--ivory);
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
-            margin-top: 0.3rem;
-            opacity: 0.7;
-        }
-        .loader-bar {
-            width: 160px;
-            height: 2px;
-            background: rgba(200,150,62,0.2);
-            margin: 1.2rem auto 0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .loader-bar-fill {
-            height: 100%;
-            background: var(--royal-gold);
-            border-radius: 2px;
-            animation: loaderBar 1.8s ease-in-out infinite;
-            width: 0%;
-        }
+        .loader-logo { font-family: var(--font-elegant); font-size: 2.5rem; font-weight: 700; color: var(--royal-gold); letter-spacing: 0.15em; }
+        .loader-subtitle { color: var(--ivory); font-size: 0.85rem; letter-spacing: 0.3em; margin-top: 0.3rem; opacity: 0.7; }
+        .loader-bar { width: 160px; height: 2px; background: rgba(200,150,62,0.2); margin: 1.2rem auto 0; border-radius: 2px; overflow: hidden; }
+        .loader-bar-fill { height: 100%; background: var(--royal-gold); border-radius: 2px; animation: loaderBar 1.8s ease-in-out infinite; width: 0%; }
         @keyframes loaderBar {
             0% { width: 0%; margin-left: 0; }
             50% { width: 60%; margin-left: 20%; }
@@ -353,143 +370,86 @@
             background: var(--royal-dark);
             overflow: hidden;
         }
-        .hero-bg-slides {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+        .hero-bg-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-bg-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
             opacity: 0;
             transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
             transform: scale(1.1);
         }
-        .hero-bg-slide.active {
-            opacity: 0.35;
-            transform: scale(1);
-        }
+        .hero-bg-slide.active { opacity: 0.35; transform: scale(1); }
         .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, rgba(26,15,46,0.9) 0%, rgba(26,15,46,0.6) 50%, rgba(13,107,74,0.4) 100%);
             z-index: 1;
         }
-        .hero-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
+        .hero-particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; }
         .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 1200px;
-            margin: 0 auto;
+            position: relative; z-index: 3;
+            max-width: 1200px; margin: 0 auto;
             padding: 5rem 2rem 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center;
             width: 100%;
         }
 
-        /* Portrait slideshow - MULTIPLE IMAGES */
+        /* PORTRAIT SLIDESHOW - 5 IMAGES */
         .hero-portrait-slideshow {
             position: relative;
-            width: 280px;
-            height: 370px;
+            width: 280px; height: 370px;
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s 0.2s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
+            opacity: 0; animation-fill-mode: forwards;
         }
         @media (min-width: 768px) {
-            .hero-portrait-slideshow {
-                width: 340px;
-                height: 450px;
-            }
+            .hero-portrait-slideshow { width: 340px; height: 450px; }
         }
         @media (min-width: 1024px) {
-            .hero-portrait-slideshow {
-                width: 380px;
-                height: 500px;
-            }
+            .hero-portrait-slideshow { width: 380px; height: 500px; }
+        }
+        @media (max-width: 480px) {
+            .hero-portrait-slideshow { width: 220px; height: 290px; margin-bottom: 1.5rem; }
         }
         .hero-portrait-frame {
-            width: 100%;
-            height: 100%;
-            border-radius: 24px;
-            overflow: hidden;
+            width: 100%; height: 100%;
+            border-radius: 24px; overflow: hidden;
             border: 3px solid rgba(200,150,62,0.5);
             box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 15px rgba(200,150,62,0.08);
             position: relative;
         }
         .hero-portrait-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
             opacity: 0;
             transition: opacity 1.2s ease-in-out;
         }
-        .hero-portrait-slide.active {
-            opacity: 1;
-        }
+        .hero-portrait-slide.active { opacity: 1; }
         .hero-portrait-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 130%;
-            height: 130%;
+            width: 130%; height: 130%;
             background: radial-gradient(circle, rgba(200,150,62,0.25) 0%, transparent 70%);
             pointer-events: none;
             animation: glowPulse 3s ease-in-out infinite;
             z-index: -1;
         }
-        .hero-portrait-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
+        .hero-portrait-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
         .hero-portrait-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+            width: 8px; height: 8px; border-radius: 50%;
             background: rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            padding: 0;
+            cursor: pointer; transition: all 0.3s;
+            border: none; padding: 0;
         }
-        .hero-portrait-dot.active {
-            background: var(--royal-gold);
-            width: 24px;
-            border-radius: 8px;
-        }
+        .hero-portrait-dot.active { background: var(--royal-gold); width: 24px; border-radius: 8px; }
 
-        /* Text & Buttons BELOW the portrait */
+        /* Text & Buttons BELOW portrait */
         .hero-text {
             color: var(--white);
             animation: fadeInUp 0.8s 0.4s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
+            opacity: 0; animation-fill-mode: forwards;
             max-width: 700px;
         }
         .hero-badge {
@@ -497,78 +457,47 @@
             background: rgba(200,150,62,0.15);
             border: 1px solid rgba(200,150,62,0.4);
             color: var(--royal-gold);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
+            padding: 0.4rem 1.2rem; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.08em; margin-bottom: 1rem;
         }
         .hero-name {
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.15;
+            font-weight: 800; line-height: 1.15;
             margin-bottom: 0.3rem;
         }
         .hero-name span {
-            color: var(--royal-gold);
-            display: block;
+            color: var(--royal-gold); display: block;
             font-size: clamp(1rem, 1.8vw, 1.3rem);
-            font-weight: 500;
-            letter-spacing: 0.15em;
+            font-weight: 500; letter-spacing: 0.15em;
             margin-bottom: 0.2rem;
         }
         .hero-title {
             font-size: clamp(0.85rem, 1.3vw, 1rem);
             color: rgba(255,255,255,0.65);
-            font-weight: 400;
-            line-height: 1.6;
+            font-weight: 400; line-height: 1.6;
             margin-bottom: 1.8rem;
         }
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            letter-spacing: 0.03em;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 2rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem;
+            text-decoration: none; letter-spacing: 0.03em;
             transition: all 0.3s var(--transition-smooth);
-            cursor: pointer;
-            border: none;
+            cursor: pointer; border: none;
             font-family: var(--font-body);
             -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            white-space: nowrap;
+            touch-action: manipulation; white-space: nowrap;
         }
-        .btn-primary {
-            background: var(--royal-gold);
-            color: var(--white);
-            box-shadow: var(--shadow-gold);
-        }
-        .btn-primary:hover {
-            background: var(--royal-gold-light);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-gold-lg);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .btn-outline:hover {
-            border-color: var(--royal-gold);
-            color: var(--royal-gold);
-            transform: translateY(-3px);
+        .btn-primary { background: var(--royal-gold); color: var(--white); box-shadow: var(--shadow-gold); }
+        .btn-primary:hover { background: var(--royal-gold-light); transform: translateY(-3px); box-shadow: var(--shadow-gold-lg); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+        .btn-outline:hover { border-color: var(--royal-gold); color: var(--royal-gold); transform: translateY(-3px); }
+        @media (max-width: 480px) {
+            .hero-content { padding: 5rem 1rem 2rem; }
+            .btn { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
         }
 
         @keyframes fadeInUp {
@@ -580,411 +509,146 @@
             50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); }
         }
         .scroll-indicator {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
+            position: absolute; bottom: 1.5rem; left: 50%;
+            transform: translateX(-50%); z-index: 3;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.3rem;
             color: rgba(255,255,255,0.5);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
+            font-size: 0.7rem; letter-spacing: 0.1em;
             animation: bounceDown 2s ease-in-out infinite;
         }
-        .scroll-indicator i {
-            font-size: 1.1rem;
-        }
+        .scroll-indicator i { font-size: 1.1rem; }
         @keyframes bounceDown {
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(10px); }
         }
-        @media (max-width: 480px) {
-            .hero-portrait-slideshow {
-                width: 220px;
-                height: 290px;
-                margin-bottom: 1.5rem;
-            }
-            .hero-content {
-                padding: 5rem 1rem 2rem;
-            }
-            .btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.85rem;
-            }
-        }
 
         /* ============ SECTION STYLES ============ */
-        section {
-            padding: 5rem 2rem;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+        section { padding: 5rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
         .section-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            color: var(--royal-gold);
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
+            display: inline-block; font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; color: var(--royal-gold);
+            text-transform: uppercase; margin-bottom: 0.8rem;
         }
         .section-title {
             font-family: var(--font-display);
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            color: var(--royal-dark);
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            font-weight: 700; color: var(--royal-dark);
+            line-height: 1.2; margin-bottom: 1rem;
         }
-        .section-line {
-            width: 60px;
-            height: 3px;
-            background: var(--royal-gold);
-            margin: 0 auto;
-            border-radius: 3px;
-        }
-        @media (max-width: 480px) {
-            section {
-                padding: 3.5rem 1rem;
-            }
-        }
+        .section-line { width: 60px; height: 3px; background: var(--royal-gold); margin: 0 auto; border-radius: 3px; }
+        @media (max-width: 480px) { section { padding: 3.5rem 1rem; } }
 
         /* ============ QUOTE BANNER (BLACK TEXT) ============ */
         .quote-banner {
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
-            padding: 5rem 2rem;
-            text-align: center;
+            background: var(--white); position: relative; overflow: hidden;
+            padding: 5rem 2rem; text-align: center;
             border-top: 1px solid var(--ivory-dark);
             border-bottom: 1px solid var(--ivory-dark);
         }
-        .quote-banner-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.06;
-        }
-        .quote-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .quote-mark {
-            font-family: var(--font-display);
-            font-size: 5rem;
-            color: var(--royal-gold);
-            opacity: 0.4;
-            line-height: 0.5;
-        }
+        .quote-banner-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.06; }
+        .quote-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .quote-mark { font-family: var(--font-display); font-size: 5rem; color: var(--royal-gold); opacity: 0.4; line-height: 0.5; }
         .quote-text {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-style: italic;
-            color: var(--rich-black);
-            line-height: 1.4;
-            margin: 1rem 0;
+            font-style: italic; color: var(--rich-black);
+            line-height: 1.4; margin: 1rem 0;
         }
-        .quote-author {
-            color: var(--royal-gold-dark);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            font-size: 1rem;
-        }
+        .quote-author { color: var(--royal-gold-dark); font-weight: 600; letter-spacing: 0.05em; font-size: 1rem; }
 
         /* ============ ABOUT PREVIEW ============ */
-        .about-preview {
-            background: var(--white);
-        }
-        .about-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .about-text h3 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--royal-dark);
-            margin-bottom: 1rem;
-        }
-        .about-text p {
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
+        .about-preview { background: var(--white); }
+        .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image-wrapper { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-xl); }
+        .about-image-wrapper img { width: 100%; height: auto; display: block; }
+        .about-text h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--royal-dark); margin-bottom: 1rem; }
+        .about-text p { color: var(--gray-600); margin-bottom: 1rem; line-height: 1.8; font-size: 0.95rem; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
 
         /* ============ MINISTRY CARDS ============ */
-        .ministry-section {
-            background: var(--ivory);
-        }
-        .cards-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-        }
+        .ministry-section { background: var(--ivory); }
+        .cards-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
         .ministry-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
+            background: var(--white); border-radius: 20px; padding: 2.5rem 2rem;
+            text-align: center; box-shadow: var(--shadow-md);
             transition: all 0.4s var(--transition-smooth);
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            cursor: default;
+            border: 1px solid transparent; position: relative; overflow: hidden; cursor: default;
         }
         .ministry-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--royal-gold);
-            transform: scaleX(0);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--royal-gold); transform: scaleX(0);
             transition: transform 0.4s var(--transition-smooth);
         }
-        .ministry-card:hover::before {
-            transform: scaleX(1);
-        }
-        .ministry-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(200,150,62,0.2);
-        }
+        .ministry-card:hover::before { transform: scaleX(1); }
+        .ministry-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: rgba(200,150,62,0.2); }
         .ministry-card-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--soft-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            color: var(--royal-gold-dark);
-            transition: all 0.3s;
+            width: 70px; height: 70px; background: var(--soft-gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; font-size: 1.8rem; color: var(--royal-gold-dark); transition: all 0.3s;
         }
-        .ministry-card:hover .ministry-card-icon {
-            background: var(--royal-gold);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-        .ministry-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--royal-dark);
-            margin-bottom: 0.8rem;
-        }
-        .ministry-card p {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            .ministry-card {
-                padding: 2rem 1.5rem;
-            }
-        }
+        .ministry-card:hover .ministry-card-icon { background: var(--royal-gold); color: var(--white); transform: scale(1.1); }
+        .ministry-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--royal-dark); margin-bottom: 0.8rem; }
+        .ministry-card p { color: var(--gray-600); font-size: 0.9rem; line-height: 1.7; }
+        @media (max-width: 480px) { .cards-grid { grid-template-columns: 1fr; } .ministry-card { padding: 2rem 1.5rem; } }
 
         /* ============ BOOK SECTION ============ */
-        .book-section {
-            background: var(--white);
-        }
-        .book-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .book-cover {
-            perspective: 1000px;
-        }
+        .book-section { background: var(--white); }
+        .book-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+        .book-cover { perspective: 1000px; }
         .book-cover-inner {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
+            position: relative; border-radius: 12px; overflow: hidden;
             box-shadow: 20px 20px 50px rgba(0,0,0,0.25);
             transition: transform 0.5s var(--transition-smooth);
             transform: rotateY(-5deg) rotateX(3deg);
         }
-        .book-cover-inner:hover {
-            transform: rotateY(0deg) rotateX(0deg) scale(1.03);
-        }
-        .book-cover-inner img {
-            width: 100%;
-            display: block;
-        }
-        .book-details h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            color: var(--royal-dark);
-            margin-bottom: 0.5rem;
-        }
-        .book-details .book-subtitle {
-            color: var(--royal-gold);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-        }
-        .book-details p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        @media (max-width: 768px) {
-            .book-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            .book-cover-inner {
-                max-width: 260px;
-                margin: 0 auto;
-            }
-        }
+        .book-cover-inner:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.03); }
+        .book-cover-inner img { width: 100%; display: block; }
+        .book-details h3 { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--royal-dark); margin-bottom: 0.5rem; }
+        .book-details .book-subtitle { color: var(--royal-gold); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+        .book-details p { color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.95rem; }
+        @media (max-width: 768px) { .book-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; } .book-cover-inner { max-width: 260px; margin: 0 auto; } }
 
-        /* ============ CTA SECTION ============ */
+        /* ============ CTA ============ */
         .cta-section {
             background: linear-gradient(135deg, var(--royal-dark) 0%, var(--royal-purple) 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            text-align: center; position: relative; overflow: hidden;
         }
         .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(200,150,62,0.1) 0%, transparent 60%);
             animation: ctaGlow 8s linear infinite;
         }
-        @keyframes ctaGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .cta-content h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .cta-content p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
+        @keyframes ctaGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .cta-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .cta-content h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.5rem); color: var(--white); margin-bottom: 1rem; }
+        .cta-content p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.05rem; }
 
         /* ============ FOOTER ============ */
         footer {
-            background: var(--royal-dark);
-            color: rgba(255,255,255,0.6);
-            padding: 4rem 2rem 2rem;
-            text-align: center;
+            background: var(--royal-dark); color: rgba(255,255,255,0.6);
+            padding: 4rem 2rem 2rem; text-align: center;
             border-top: 1px solid rgba(200,150,62,0.15);
         }
-        .footer-logo {
-            font-family: var(--font-elegant);
-            font-size: 1.8rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .footer-logo span {
-            color: var(--royal-gold);
-        }
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
+        .footer-logo { font-family: var(--font-elegant); font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; }
+        .footer-logo span { color: var(--royal-gold); }
+        .footer-social { display: flex; justify-content: center; gap: 1.2rem; margin: 1.5rem 0; flex-wrap: wrap; }
         .footer-social a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 45px; height: 45px; border-radius: 50%;
             background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            text-decoration: none;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 1.2rem;
+            transition: all 0.3s; text-decoration: none;
             -webkit-tap-highlight-color: transparent;
         }
-        .footer-social a:hover {
-            background: var(--royal-gold);
-            transform: translateY(-3px);
-        }
-        .footer-tagline {
-            font-style: italic;
-            color: var(--royal-gold);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.85rem;
-        }
+        .footer-social a:hover { background: var(--royal-gold); transform: translateY(-3px); }
+        .footer-tagline { font-style: italic; color: var(--royal-gold); margin-bottom: 1rem; font-size: 1.1rem; }
+        .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; }
 
         /* ============ LAZY LOAD ============ */
-        img.lazy {
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        img.lazy.loaded {
-            opacity: 1;
-        }
+        img.lazy { opacity: 0; transition: opacity 0.6s ease; }
+        img.lazy.loaded { opacity: 1; }
     </style>
 </head>
 <body>
@@ -993,16 +657,11 @@
     <div class="loader-wrapper" id="loader">
         <div class="loader-content">
             <div class="loader-image-container">
-                <img 
-                    src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" 
-                    alt="Pastor Yomi Okewunmi"
-                >
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="Pastor Yomi Okewunmi">
             </div>
             <div class="loader-logo">PY</div>
             <div class="loader-subtitle">PASTOR YOMI OKEWUNMI</div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
         </div>
     </div>
 
@@ -1016,8 +675,23 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="invite.html" class="nav-cta">Book PY</a></li>
         </ul>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" style="display:none;"></button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="mobile-drawer-close" id="mobileClose" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="invite.html">Invite PY</a>
+        <a href="contact.html">Contact</a>
+        <a href="invite.html" class="mobile-cta">Book PY</a>
+    </div>
 
     <!-- ============ HERO SECTION ============ -->
     <section class="hero" id="home">
@@ -1079,13 +753,9 @@
         </div>
     </section>
 
-    <!-- ============ QUOTE BANNER (BLACK TEXT) ============ -->
+    <!-- ============ QUOTE BANNER ============ -->
     <section class="quote-banner">
-        <img 
-            data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" 
-            alt="" 
-            class="quote-banner-bg lazy"
-        >
+        <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="" class="quote-banner-bg lazy">
         <div class="quote-content" data-aos="fade-up">
             <div class="quote-mark">"</div>
             <p class="quote-text">
@@ -1105,37 +775,19 @@
         </div>
         <div class="about-grid">
             <div class="about-image-wrapper" data-aos="fade-right">
-                <img 
-                    data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" 
-                    alt="Pastor Yomi Okewunmi ministering" 
-                    class="lazy"
-                >
+                <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" alt="Pastor Yomi Okewunmi ministering" class="lazy">
             </div>
             <div class="about-text" data-aos="fade-left">
                 <h3>Pastor. Scholar. Visionary.</h3>
-                <p>
-                    Pastor Yomi Okewunmi, fondly known as PY, is a dynamic minister, scholar, mentor, 
-                    and author from Abeokuta, Ogun State. He serves as Resident Pastor of 
-                    <strong>SPAC Church Worldwide</strong>, where his teachings are known for their 
-                    depth, clarity, and practical relevance.
-                </p>
-                <p>
-                    With a First Class Honours degree in Philosophy from the <strong>University of Ibadan</strong>, 
-                    a Distinction in his Master's, and a National Diploma with Distinction from 
-                    The Polytechnic Ibadan, PY embodies the spirit of excellence.
-                </p>
-                <p>
-                    He is the visionary founder of <strong>Arise Conference</strong>, <strong>Afrowecanism</strong>, 
-                    and <strong>Edutop Scholar</strong> — movements that have empowered thousands across Nigeria and beyond.
-                </p>
-                <a href="about.html" class="btn btn-primary" style="margin-top:0.5rem;">
-                    Read Full Biography <i class="fas fa-arrow-right"></i>
-                </a>
+                <p>Pastor Yomi Okewunmi, fondly known as PY, is a dynamic minister, scholar, mentor, and author from Abeokuta, Ogun State. He serves as Resident Pastor of <strong>SPAC Church Worldwide</strong>, where his teachings are known for their depth, clarity, and practical relevance.</p>
+                <p>With a First Class Honours degree in Philosophy from the <strong>University of Ibadan</strong>, a Distinction in his Master's, and a National Diploma with Distinction from The Polytechnic Ibadan, PY embodies the spirit of excellence.</p>
+                <p>He is the visionary founder of <strong>Arise Conference</strong>, <strong>Afrowecanism</strong>, and <strong>Edutop Scholar</strong> — movements that have empowered thousands across Nigeria and beyond.</p>
+                <a href="about.html" class="btn btn-primary" style="margin-top:0.5rem;">Read Full Biography <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ============ MINISTRY & MOVEMENTS ============ -->
+    <!-- ============ MINISTRY ============ -->
     <section class="ministry-section" id="ministry">
         <div class="section-header" data-aos="fade-up">
             <span class="section-tag">Ministry & Movements</span>
@@ -1143,26 +795,10 @@
             <div class="section-line"></div>
         </div>
         <div class="cards-grid">
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="ministry-card-icon"><i class="fas fa-church"></i></div>
-                <h4>SPAC Church Worldwide</h4>
-                <p>Resident Pastor advancing God's Kingdom through the Word and demonstration of power. Raising people who walk in purpose, excellence, and spiritual maturity.</p>
-            </div>
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="ministry-card-icon"><i class="fas fa-fire"></i></div>
-                <h4>Arise Conference</h4>
-                <p>Monthly youth gathering now in its fourth year — a prophetic meeting point for young people discovering their path in God, purpose in life, and place in destiny.</p>
-            </div>
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="ministry-card-icon"><i class="fas fa-globe-africa"></i></div>
-                <h4>Afrowecanism</h4>
-                <p>An African ideology built on the powerful belief: <em>"As Africans, We Can."</em> Inspiring young people to embrace their African identity as a blessing.</p>
-            </div>
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="ministry-card-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h4>Edutop Scholar</h4>
-                <p>Educational initiative helping students achieve academic excellence and unlock their highest potential through mentorship and guidance.</p>
-            </div>
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="0"><div class="ministry-card-icon"><i class="fas fa-church"></i></div><h4>SPAC Church Worldwide</h4><p>Resident Pastor advancing God's Kingdom through the Word and demonstration of power. Raising people who walk in purpose, excellence, and spiritual maturity.</p></div>
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="150"><div class="ministry-card-icon"><i class="fas fa-fire"></i></div><h4>Arise Conference</h4><p>Monthly youth gathering now in its fourth year — a prophetic meeting point for young people discovering their path in God, purpose in life, and place in destiny.</p></div>
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="300"><div class="ministry-card-icon"><i class="fas fa-globe-africa"></i></div><h4>Afrowecanism</h4><p>An African ideology built on the powerful belief: <em>"As Africans, We Can."</em> Inspiring young people to embrace their African identity as a blessing.</p></div>
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="450"><div class="ministry-card-icon"><i class="fas fa-graduation-cap"></i></div><h4>Edutop Scholar</h4><p>Educational initiative helping students achieve academic excellence and unlock their highest potential through mentorship and guidance.</p></div>
         </div>
     </section>
 
@@ -1176,11 +812,7 @@
         <div class="book-grid">
             <div class="book-cover" data-aos="fade-right">
                 <div class="book-cover-inner">
-                    <img 
-                        data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/images_76_yevymi.jpg" 
-                        alt="Even There Is Something in Nothing book cover" 
-                        class="lazy"
-                    >
+                    <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/images_76_yevymi.jpg" alt="Even There Is Something in Nothing book cover" class="lazy">
                 </div>
             </div>
             <div class="book-details" data-aos="fade-left">
@@ -1188,9 +820,7 @@
                 <p class="book-subtitle">By Pastor Yomi Okewunmi</p>
                 <p>This transformational work draws from both philosophical and theological perspectives to challenge fear, impossibility, limitation, and disadvantage.</p>
                 <p>A powerful inspirational tool for anyone who feels they started life behind the line — discover the something that exists even in your nothing.</p>
-                <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener" class="btn btn-primary">
-                    <i class="fas fa-shopping-cart"></i> Get Your Copy on Selar
-                </a>
+                <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Get Your Copy on Selar</a>
             </div>
         </div>
     </section>
@@ -1200,9 +830,7 @@
         <div class="cta-content" data-aos="fade-up">
             <h2>Invite Pastor Yomi to Your Next Event</h2>
             <p>Whether it's a conference, youth program, leadership summit, or church service — bring a transformative voice that equips, empowers, and elevates lives.</p>
-            <a href="invite.html" class="btn btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">
-                <i class="fas fa-calendar-check"></i> Book PY Now
-            </a>
+            <a href="invite.html" class="btn btn-primary" style="font-size:1rem; padding:1rem 2.5rem;"><i class="fas fa-calendar-check"></i> Book PY Now</a>
         </div>
     </section>
 
@@ -1215,239 +843,157 @@
             <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store"><i class="fas fa-store"></i></a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p></div>
     </footer>
 
-    <!-- ============ SCRIPTS ============ -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script>
-        // ============ LOADING SCREEN ============
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1800);
-        });
+        // ============ LOADING ============
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1800); });
 
-        // ============ AOS INIT ============
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 60,
-        });
+        // ============ AOS ============
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
 
         // ============ PORTRAIT SLIDESHOW (5 IMAGES) ============
         const portraitSlides = document.querySelectorAll('.hero-portrait-slide');
         const portraitDots = document.querySelectorAll('.hero-portrait-dot');
         let portraitCurrent = 0;
         let portraitInterval;
-        const portraitDuration = 4000;
+        const PORTRAIT_DURATION = 4000;
 
         function loadPortraitSlide(index) {
             const slide = portraitSlides[index];
-            if (slide.dataset.src && !slide.src) {
-                slide.src = slide.dataset.src;
-                slide.classList.add('loaded');
-            }
+            if (slide.dataset.src && !slide.src) { slide.src = slide.dataset.src; slide.classList.add('loaded'); }
         }
-
         function goToPortraitSlide(index) {
             portraitSlides.forEach(s => s.classList.remove('active'));
             portraitDots.forEach(d => d.classList.remove('active'));
             portraitSlides[index].classList.add('active');
             portraitDots[index].classList.add('active');
             portraitCurrent = index;
-            // Preload adjacent
             loadPortraitSlide(index);
             loadPortraitSlide((index + 1) % portraitSlides.length);
             loadPortraitSlide((index - 1 + portraitSlides.length) % portraitSlides.length);
         }
+        function nextPortraitSlide() { goToPortraitSlide((portraitCurrent + 1) % portraitSlides.length); }
 
-        function nextPortraitSlide() {
-            const next = (portraitCurrent + 1) % portraitSlides.length;
-            goToPortraitSlide(next);
-        }
-
-        // Preload first 3
-        loadPortraitSlide(0);
-        loadPortraitSlide(1);
-        loadPortraitSlide(2);
-
-        portraitInterval = setInterval(nextPortraitSlide, portraitDuration);
+        loadPortraitSlide(0); loadPortraitSlide(1); loadPortraitSlide(2);
+        portraitInterval = setInterval(nextPortraitSlide, PORTRAIT_DURATION);
 
         portraitDots.forEach(dot => {
             dot.addEventListener('click', () => {
-                const index = parseInt(dot.dataset.index);
-                goToPortraitSlide(index);
+                goToPortraitSlide(parseInt(dot.dataset.index));
                 clearInterval(portraitInterval);
-                portraitInterval = setInterval(nextPortraitSlide, portraitDuration);
+                portraitInterval = setInterval(nextPortraitSlide, PORTRAIT_DURATION);
             });
         });
 
-        // Pause portrait on hover
-        const portraitSlideshow = document.getElementById('portraitSlideshow');
-        portraitSlideshow.addEventListener('mouseenter', () => clearInterval(portraitInterval));
-        portraitSlideshow.addEventListener('mouseleave', () => {
-            portraitInterval = setInterval(nextPortraitSlide, portraitDuration);
-        });
-
-        // Touch swipe for portrait
-        portraitSlideshow.addEventListener('touchstart', (e) => {
-            portraitSlideshow.dataset.startX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        portraitSlideshow.addEventListener('touchend', (e) => {
-            const startX = parseFloat(portraitSlideshow.dataset.startX || 0);
-            const endX = e.changedTouches[0].screenX;
-            const diff = startX - endX;
+        const portraitEl = document.getElementById('portraitSlideshow');
+        portraitEl.addEventListener('mouseenter', () => clearInterval(portraitInterval));
+        portraitEl.addEventListener('mouseleave', () => { portraitInterval = setInterval(nextPortraitSlide, PORTRAIT_DURATION); });
+        portraitEl.addEventListener('touchstart', (e) => { portraitEl.dataset.startX = e.changedTouches[0].screenX; }, { passive: true });
+        portraitEl.addEventListener('touchend', (e) => {
+            const diff = parseFloat(portraitEl.dataset.startX || 0) - e.changedTouches[0].screenX;
             if (Math.abs(diff) > 40) {
                 clearInterval(portraitInterval);
-                if (diff > 0) {
-                    goToPortraitSlide((portraitCurrent + 1) % portraitSlides.length);
-                } else {
-                    goToPortraitSlide((portraitCurrent - 1 + portraitSlides.length) % portraitSlides.length);
-                }
-                portraitInterval = setInterval(nextPortraitSlide, portraitDuration);
+                goToPortraitSlide(diff > 0 ? (portraitCurrent + 1) % portraitSlides.length : (portraitCurrent - 1 + portraitSlides.length) % portraitSlides.length);
+                portraitInterval = setInterval(nextPortraitSlide, PORTRAIT_DURATION);
             }
         });
 
         // ============ BACKGROUND SLIDESHOW ============
         const bgSlides = document.querySelectorAll('.hero-bg-slide');
-        let bgCurrent = 0;
-        let bgInterval;
-        function loadBgSlide(index) {
-            const slide = bgSlides[index];
-            if (slide.dataset.src && !slide.src) {
-                slide.src = slide.dataset.src;
-            }
-        }
-        function goToBgSlide(index) {
-            bgSlides.forEach(s => s.classList.remove('active'));
-            bgSlides[index].classList.add('active');
-            bgCurrent = index;
-            loadBgSlide(index);
-            loadBgSlide((index + 1) % bgSlides.length);
-        }
-        function nextBgSlide() {
-            goToBgSlide((bgCurrent + 1) % bgSlides.length);
-        }
+        let bgCurrent = 0, bgInterval;
+        function loadBgSlide(i) { const s = bgSlides[i]; if (s.dataset.src && !s.src) s.src = s.dataset.src; }
+        function goToBgSlide(i) { bgSlides.forEach(s => s.classList.remove('active')); bgSlides[i].classList.add('active'); bgCurrent = i; loadBgSlide(i); loadBgSlide((i+1)%bgSlides.length); }
         loadBgSlide(0); loadBgSlide(1);
-        bgInterval = setInterval(nextBgSlide, 6000);
+        bgInterval = setInterval(() => goToBgSlide((bgCurrent+1)%bgSlides.length), 6000);
 
         // ============ NAVBAR SCROLL ============
-        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
+
+        // ============ MOBILE DRAWER (NO LAYOUT SHIFT) ============
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+        const body = document.body;
+        let scrollPosition = 0;
+
+        function openDrawer() {
+            scrollPosition = window.scrollY;
+            body.style.top = `-${scrollPosition}px`;
+            body.classList.add('menu-open');
+            mobileDrawer.classList.add('active');
+            mobileOverlay.classList.add('active');
+            mobileToggle.querySelector('i').classList.remove('fa-bars');
+            mobileToggle.querySelector('i').classList.add('fa-times');
+        }
+        function closeDrawer() {
+            body.classList.remove('menu-open');
+            body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+            mobileDrawer.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+        }
+
+        mobileToggle.addEventListener('click', () => {
+            if (mobileDrawer.classList.contains('active')) closeDrawer();
+            else openDrawer();
+        });
+        mobileClose.addEventListener('click', closeDrawer);
+        mobileOverlay.addEventListener('click', closeDrawer);
+        document.querySelectorAll('.mobile-drawer a').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
 
         // ============ PARTICLE CANVAS ============
         const canvas = document.getElementById('particleCanvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            let particles = [];
-            let animationId;
-
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.offsetWidth;
-                canvas.height = canvas.parentElement.offsetHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
-
-            function initParticles() {
+            let particles = [], animId;
+            function resize() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
+            resize(); window.addEventListener('resize', () => { resize(); init(); });
+            function init() {
                 particles = [];
-                const count = Math.min(80, Math.floor(canvas.width * canvas.height / 18000));
-                for (let i = 0; i < count; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        radius: Math.random() * 2 + 0.5,
-                        speedX: (Math.random() - 0.5) * 0.35,
-                        speedY: (Math.random() - 0.5) * 0.35,
-                        opacity: Math.random() * 0.5 + 0.2,
-                        ox: 0, oy: 0
-                    });
-                    particles[i].ox = particles[i].x;
-                    particles[i].oy = particles[i].y;
-                }
+                const n = Math.min(80, Math.floor(canvas.width*canvas.height/18000));
+                for(let i=0;i<n;i++) particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+.5,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,o:Math.random()*.5+.2});
             }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach((p, i) => {
-                    p.x += p.speedX; p.y += p.speedY;
-                    p.ox += p.speedX; p.oy += p.speedY;
-                    if (p.x < -50) { p.x = canvas.width + 50; p.ox = p.x; }
-                    if (p.x > canvas.width + 50) { p.x = -50; p.ox = p.x; }
-                    if (p.y < -50) { p.y = canvas.height + 50; p.oy = p.y; }
-                    if (p.y > canvas.height + 50) { p.y = -50; p.oy = p.y; }
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(200,150,62,${p.opacity})`;
-                    ctx.fill();
-
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = p.x - particles[j].x;
-                        const dy = p.y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(200,150,62,${0.05 * (1 - dist / 100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
+            function anim() {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                particles.forEach((p,i)=>{
+                    p.x+=p.vx; p.y+=p.vy;
+                    if(p.x<-50)p.x=canvas.width+50; if(p.x>canvas.width+50)p.x=-50;
+                    if(p.y<-50)p.y=canvas.height+50; if(p.y>canvas.height+50)p.y=-50;
+                    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(200,150,62,${p.o})`; ctx.fill();
+                    for(let j=i+1;j<particles.length;j++){const dx=p.x-particles[j].x,dy=p.y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy); if(d<100){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(200,150,62,${0.05*(1-d/100)})`;ctx.lineWidth=.5;ctx.stroke();}}
                 });
-                animationId = requestAnimationFrame(animateParticles);
+                animId=requestAnimationFrame(anim);
             }
-
-            initParticles();
-            animateParticles();
+            init(); anim();
         }
 
-        // ============ LAZY LOADING ============
-        const lazyImages = document.querySelectorAll('img.lazy');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.onload = () => img.classList.add('loaded');
-                        img.onerror = () => { img.classList.add('loaded'); };
-                    }
-                    observer.unobserve(img);
-                }
+        // ============ LAZY LOAD ============
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if(e.isIntersecting){const img=e.target; if(img.dataset.src){img.src=img.dataset.src; img.onload=()=>img.classList.add('loaded');} io.unobserve(img);}
             });
-        }, { rootMargin: '200px 0px', threshold: 0.01 });
-        lazyImages.forEach(img => imageObserver.observe(img));
+        }, {rootMargin:'200px 0px'});
+        document.querySelectorAll('img.lazy').forEach(img=>io.observe(img));
 
         // ============ SMOOTH SCROLL ============
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href')); if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 
-        console.log('%c PY Digital Legacy %c Ready ',
-            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
-            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
+        console.log('%c PY Digital Legacy %c Ready %c Silicon Valley Standard ',
+            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:12px;border-radius:4px 0 0 4px;',
+            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:12px;',
+            'background:#0D6B4A;color:#FFF;padding:8px 12px;font-size:12px;border-radius:0 4px 4px 0;');
     </script>
 </body>
 </html>
