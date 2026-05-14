@@ -2,117 +2,843 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="theme-color" content="#1A0F2E">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <title>Contact Pastor Yomi Okewunmi (PY) — Get in Touch</title>
     <meta name="description" content="Contact Pastor Yomi Okewunmi (PY). Reach out for speaking engagements, ministry inquiries, Arise Conference, book orders, or general questions. Connect on Facebook and Instagram.">
-    <meta name="keywords" content="contact Pastor Yomi Okewunmi, PY contact, SPAC Church contact, Arise Conference contact, Pastor Yomi email, Nigerian pastor contact">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="contact Pastor Yomi Okewunmi, PY contact, SPAC Church contact, Arise Conference contact, Pastor Yomi email, Nigerian pastor contact, Ibadan pastor, Oyo State">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://pastoryomiokewunmi.com/contact">
     
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pastor Yomi Okewunmi (PY)">
     <meta property="og:title" content="Contact Pastor Yomi Okewunmi (PY)">
     <meta property="og:description" content="Get in touch with PY for speaking engagements, ministry inquiries, and more.">
     <meta property="og:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
     <meta property="og:url" content="https://pastoryomiokewunmi.com/contact">
+    <meta property="og:locale" content="en_NG">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Pastor Yomi Okewunmi (PY)">
+    <meta name="twitter:description" content="Get in touch with PY for speaking engagements, ministry inquiries, and more.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Pastor Yomi Okewunmi",
+            "alternateName": "PY",
+            "url": "https://pastoryomiokewunmi.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Ibadan",
+                "addressRegion": "Oyo State",
+                "addressCountry": "Nigeria"
+            },
+            "sameAs": [
+                "https://www.facebook.com/yomi.okewunmi",
+                "https://www.instagram.com/yomi_okewunmi"
+            ]
+        }
+    }
+    </script>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <!-- EmailJS for Gmail -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         :root {
-            --royal-gold:#C8963E;--royal-gold-light:#D4A84B;--royal-dark:#1A0F2E;--royal-purple:#2D1B4E;
-            --ivory-light:#FDFBF7;--ivory:#F8F4EC;--ivory-dark:#EBE3D3;--emerald:#0D6B4A;
-            --soft-gold:#F5E6C8;--rich-black:#0D0D0D;--white:#FFFFFF;
-            --gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-500:#6B7280;--gray-600:#4B5563;--gray-700:#374151;
-            --font-display:'Playfair Display',Georgia,serif;--font-elegant:'Cinzel',Georgia,serif;
-            --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-            --transition-smooth:cubic-bezier(0.4,0,0.2,1);
-            --shadow-md:0 4px 6px -1px rgba(0,0,0,0.07);--shadow-lg:0 10px 25px -3px rgba(0,0,0,0.08);
-            --shadow-xl:0 20px 50px -6px rgba(0,0,0,0.1);--shadow-gold:0 10px 40px -10px rgba(200,150,62,0.3);
-            --shadow-gold-lg:0 25px 60px -15px rgba(200,150,62,0.35);
+            --royal-gold: #C8963E;
+            --royal-gold-light: #D4A84B;
+            --royal-gold-dark: #A67A2E;
+            --royal-dark: #1A0F2E;
+            --royal-purple: #2D1B4E;
+            --ivory-light: #FDFBF7;
+            --ivory: #F8F4EC;
+            --ivory-dark: #EBE3D3;
+            --emerald: #0D6B4A;
+            --emerald-light: #1A8B63;
+            --soft-gold: #F5E6C8;
+            --rich-black: #0D0D0D;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-elegant: 'Cinzel', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 50px -6px rgba(0,0,0,0.1), 0 8px 20px -8px rgba(0,0,0,0.06);
+            --shadow-gold: 0 10px 40px -10px rgba(200,150,62,0.3);
+            --shadow-gold-lg: 0 25px 60px -15px rgba(200,150,62,0.35);
         }
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-y:scroll}
-        body{font-family:var(--font-body);background:var(--ivory-light);color:var(--rich-black);line-height:1.7;overflow-x:hidden;min-height:100vh}
-        .navbar{position:fixed;top:0;left:0;width:100%;z-index:10000;padding:1.2rem 2rem;transition:all .4s var(--transition-smooth);display:flex;align-items:center;justify-content:space-between}
-        .navbar.scrolled{background:rgba(26,15,46,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:.7rem 2rem;box-shadow:0 4px 30px rgba(0,0,0,0.3);border-bottom:1px solid rgba(200,150,62,0.15)}
-        .nav-logo{font-family:var(--font-elegant);font-size:1.6rem;font-weight:700;color:var(--white);letter-spacing:.08em;text-decoration:none;z-index:10001}.nav-logo span{color:var(--royal-gold)}
-        .nav-links{display:flex;list-style:none;gap:2rem;align-items:center}
-        .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:500;font-size:.9rem;position:relative}
-        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--royal-gold);transition:width .3s}
-        .nav-links a:hover::after,.nav-links a.active::after{width:100%}.nav-links a:hover,.nav-links a.active{color:var(--royal-gold)}
-        .nav-cta{background:var(--royal-gold)!important;color:var(--white)!important;padding:.6rem 1.5rem!important;border-radius:50px!important;font-weight:600!important}.nav-cta:hover{background:var(--royal-gold-light)!important;transform:translateY(-2px);box-shadow:var(--shadow-gold)}.nav-cta::after{display:none!important}
-        .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:10001}
-        @media(max-width:1024px){.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--royal-dark);flex-direction:column;padding:6rem 2rem 2rem;gap:1.5rem;transition:right .4s;box-shadow:-10px 0 40px rgba(0,0,0,0.3);overflow-y:auto}.nav-links.active{right:0}.mobile-toggle{display:block}}
-        .loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--royal-dark);display:flex;align-items:center;justify-content:center;z-index:999999;transition:opacity .8s ease,visibility .8s ease}
-        .loader-wrapper.hidden{opacity:0;visibility:hidden}
-        .loader-image-container{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 2rem;border:3px solid rgba(200,150,62,0.5);animation:loaderZoom 2s ease-in-out infinite;box-shadow:0 0 40px rgba(200,150,62,0.3)}.loader-image-container img{width:100%;height:100%;object-fit:cover}
-        @keyframes loaderZoom{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-        .loader-logo{font-family:var(--font-elegant);font-size:2.5rem;font-weight:700;color:var(--royal-gold)}.loader-bar{width:160px;height:2px;background:rgba(200,150,62,0.2);margin:1.2rem auto 0;overflow:hidden}.loader-bar-fill{height:100%;background:var(--royal-gold);animation:loaderBar 1.8s ease-in-out infinite;width:0%}
-        @keyframes loaderBar{0%{width:0}50%{width:60%}100%{width:0}}
-        .page-header{position:relative;padding:10rem 2rem 5rem;background:var(--royal-dark);text-align:center;overflow:hidden}
-        .page-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,15,46,0.95)0%,rgba(26,15,46,0.7)50%,rgba(13,107,74,0.3)100%);z-index:1}
-        .page-header-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
-        .page-header .page-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--royal-gold);text-transform:uppercase;margin-bottom:.8rem}
-        .page-header h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:1rem}
-        .page-header p{color:rgba(255,255,255,0.65);font-size:1.05rem}
-        section{padding:5rem 2rem}.container{max-width:1100px;margin:0 auto}
-        @media(max-width:480px){section{padding:3.5rem 1rem}}
-        .section-header{text-align:center;margin-bottom:3rem}
-        .section-tag{font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--royal-gold);text-transform:uppercase;margin-bottom:.8rem;display:inline-block}
-        .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--royal-dark);margin-bottom:1rem}
-        .section-line{width:60px;height:3px;background:var(--royal-gold);margin:0 auto;border-radius:3px}
-        
-        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-        .contact-info-card{background:var(--white);padding:2.5rem;border-radius:20px;box-shadow:var(--shadow-lg);border:1px solid var(--ivory-dark)}
-        .contact-info-card h3{font-family:var(--font-display);font-size:1.5rem;color:var(--royal-dark);margin-bottom:1.5rem}
-        .contact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start}
-        .contact-item-icon{width:45px;height:45px;background:var(--soft-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--royal-gold-dark);font-size:1.2rem;flex-shrink:0}
-        .contact-item-text strong{display:block;color:var(--royal-dark);margin-bottom:.2rem}
-        .contact-item-text span,.contact-item-text a{color:var(--gray-600);text-decoration:none;font-size:.9rem}
-        .contact-item-text a:hover{color:var(--royal-gold)}
-        .social-links-grid{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
-        .social-link-card{display:flex;align-items:center;gap:.6rem;padding:.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;color:var(--white)}
-        .social-link-card.fb{background:#1877F2}.social-link-card.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}.social-link-card.shop{background:var(--royal-gold)}
-        .social-link-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-        
-        .form-wrapper{background:var(--white);padding:2.5rem;border-radius:20px;box-shadow:var(--shadow-lg);border:1px solid var(--ivory-dark)}
-        .form-wrapper h3{font-family:var(--font-display);font-size:1.5rem;color:var(--royal-dark);margin-bottom:1.5rem}
-        .form-group{margin-bottom:1.2rem}
-        .form-group label{display:block;font-weight:600;margin-bottom:.4rem;color:var(--royal-dark);font-size:.85rem}
-        .form-group input,.form-group textarea{width:100%;padding:.85rem 1.2rem;border:2px solid var(--gray-200);border-radius:12px;font-family:var(--font-body);font-size:.9rem;transition:all .3s;background:var(--ivory-light)}
-        .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--royal-gold);box-shadow:0 0 0 4px rgba(200,150,62,0.1)}
-        .form-group textarea{resize:vertical;min-height:100px}
-        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;font-family:var(--font-body);transition:all .3s}
-        .btn-primary{background:var(--royal-gold);color:var(--white);box-shadow:var(--shadow-gold);width:100%;justify-content:center}
-        .btn-primary:hover{background:var(--royal-gold-light);transform:translateY(-3px)}
-        @media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
-        
-        footer{background:var(--royal-dark);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem;text-align:center;border-top:1px solid rgba(200,150,62,0.15)}
-        .footer-logo{font-family:var(--font-elegant);font-size:1.8rem;color:var(--white);margin-bottom:1rem}.footer-logo span{color:var(--royal-gold)}
-        .footer-social{display:flex;justify-content:center;gap:1.2rem;margin:1.5rem 0}
-        .footer-social a{width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:all .3s;text-decoration:none}
-        .footer-social a:hover{background:var(--royal-gold);transform:translateY(-3px)}
-        .footer-tagline{font-style:italic;color:var(--royal-gold);margin-bottom:1rem;font-size:1.1rem}
-        .footer-bottom{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);font-size:.85rem}
-        img.lazy{opacity:0;transition:opacity .6s ease}img.lazy.loaded{opacity:1}
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--ivory-light);
+            color: var(--rich-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+            cursor: default;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Loading Screen */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--royal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid rgba(200,150,62,0.5);
+            animation: loaderZoom 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(200,150,62,0.3);
+        }
+        .loader-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes loaderZoom {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(200,150,62,0.3); }
+            50% { transform: scale(1.15); box-shadow: 0 0 70px rgba(200,150,62,0.5); }
+        }
+        .loader-logo {
+            font-family: var(--font-elegant);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--royal-gold);
+            letter-spacing: 0.15em;
+        }
+        .loader-bar {
+            width: 160px;
+            height: 2px;
+            background: rgba(200,150,62,0.2);
+            margin: 1.2rem auto 0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loader-bar-fill {
+            height: 100%;
+            background: var(--royal-gold);
+            border-radius: 2px;
+            animation: loaderBar 1.8s ease-in-out infinite;
+            width: 0%;
+        }
+        @keyframes loaderBar {
+            0% { width: 0%; margin-left: 0; }
+            50% { width: 60%; margin-left: 20%; }
+            100% { width: 0%; margin-left: 100%; }
+        }
+
+        /* Navbar - Apple Style */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 1rem 2rem;
+            transition: all 0.4s var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(26,15,46,0.92);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 30px rgba(0,0,0,0.4);
+            border-bottom: 1px solid rgba(200,150,62,0.1);
+        }
+        .nav-logo {
+            font-family: var(--font-elegant);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            z-index: 10001;
+            position: relative;
+        }
+        .nav-logo span {
+            color: var(--royal-gold);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--royal-gold);
+            transition: width 0.3s var(--transition-smooth);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--royal-gold);
+        }
+        .nav-cta {
+            background: var(--royal-gold) !important;
+            color: var(--white) !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s var(--transition-smooth) !important;
+        }
+        .nav-cta:hover {
+            background: var(--royal-gold-light) !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+            color: var(--white) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 10001;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+        }
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 320px;
+                max-width: 85vw;
+                height: 100vh;
+                height: 100dvh;
+                background: rgba(26,15,46,0.98);
+                backdrop-filter: blur(40px) saturate(180%);
+                -webkit-backdrop-filter: blur(40px) saturate(180%);
+                flex-direction: column;
+                padding: 6rem 2.5rem 2.5rem;
+                gap: 1.8rem;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+                box-shadow: -10px 0 50px rgba(0,0,0,0.5);
+                overflow-y: auto;
+                z-index: 9999;
+                border-left: 1px solid rgba(200,150,62,0.15);
+            }
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.3rem 0;
+                display: block;
+            }
+            .nav-cta {
+                text-align: center;
+                display: block !important;
+                margin-top: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.9rem 1rem;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                width: 100%;
+                max-width: 100vw;
+                padding: 6rem 2rem 2rem;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            background: var(--royal-dark);
+            text-align: center;
+            overflow: hidden;
+            min-height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+        .page-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26,15,46,0.92) 0%, rgba(26,15,46,0.55) 50%, rgba(13,107,74,0.3) 100%);
+            z-index: 1;
+        }
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-header .page-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            background: rgba(200,150,62,0.15);
+            border: 1px solid rgba(200,150,62,0.4);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+        }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .page-header .header-subtitle {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--royal-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--royal-gold);
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+        @media (max-width: 480px) {
+            section {
+                padding: 3.5rem 1rem;
+            }
+            .page-header {
+                padding: 7rem 1rem 3rem;
+                min-height: 30vh;
+            }
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-info-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--ivory-dark);
+        }
+        .contact-info-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--royal-dark);
+            margin-bottom: 1.8rem;
+        }
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--royal-gold-dark);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        .contact-item:hover .contact-item-icon {
+            background: var(--royal-gold);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        .contact-item-text strong {
+            display: block;
+            color: var(--royal-dark);
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+        .contact-item-text span,
+        .contact-item-text a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .contact-item-text a:hover {
+            color: var(--royal-gold);
+        }
+        .social-links-grid {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .social-link-card {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            color: var(--white);
+        }
+        .social-link-card.fb {
+            background: #1877F2;
+        }
+        .social-link-card.ig {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        .social-link-card.shop {
+            background: var(--royal-gold);
+        }
+        .social-link-card.wa {
+            background: #25D366;
+        }
+        .social-link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Form */
+        .form-wrapper {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--ivory-dark);
+            position: relative;
+        }
+        .form-wrapper h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--royal-dark);
+            margin-bottom: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--royal-dark);
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+        .form-group label .required {
+            color: #e74c3c;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: all 0.3s var(--transition-smooth);
+            background: var(--ivory-light);
+            color: var(--rich-black);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+            box-shadow: 0 0 0 4px rgba(200,150,62,0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-body);
+            transition: all 0.3s var(--transition-smooth);
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--royal-gold);
+            color: var(--white);
+            box-shadow: var(--shadow-gold);
+            width: 100%;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            background: var(--royal-gold-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold-lg);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .form-feedback {
+            display: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            animation: fadeInUp 0.4s var(--transition-smooth);
+        }
+        .form-feedback.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .form-feedback.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .form-feedback.loading {
+            display: block;
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .contact-info-card,
+            .form-wrapper {
+                padding: 2rem 1.5rem;
+            }
+            .social-links-grid {
+                flex-direction: column;
+            }
+            .social-link-card {
+                justify-content: center;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--royal-dark) 0%, var(--royal-purple) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200,150,62,0.1) 0%, transparent 60%);
+            animation: ctaGlow 8s linear infinite;
+        }
+        @keyframes ctaGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-content p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--royal-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(200,150,62,0.15);
+        }
+        .footer-logo {
+            font-family: var(--font-elegant);
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .footer-logo span {
+            color: var(--royal-gold);
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .footer-social a:hover {
+            background: var(--royal-gold);
+            transform: translateY(-3px);
+        }
+        .footer-tagline {
+            font-style: italic;
+            color: var(--royal-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 480px) {
+            footer {
+                padding: 3rem 1rem 1.5rem;
+            }
+        }
+
+        img.lazy {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        img.lazy.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Loading Screen -->
     <div class="loader-wrapper" id="loader">
-        <div class="loader-image-container"><img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="PY"></div>
-        <div class="loader-logo">PY</div>
-        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        <div class="loader-content">
+            <div class="loader-image-container">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="PY">
+            </div>
+            <div class="loader-logo">PY</div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
     </div>
 
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="nav-logo">PY<span>.</span></a>
         <ul class="nav-links" id="navLinks">
@@ -122,79 +848,393 @@
             <li><a href="contact.html" class="active">Contact</a></li>
             <li><a href="invite.html" class="nav-cta">Book PY</a></li>
         </ul>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
-        <div class="page-header-content">
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704666652_ti6jeg.jpg" alt="PY" class="page-header-bg">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content" data-aos="fade-up">
             <span class="page-tag">Contact</span>
             <h1>Get in Touch</h1>
-            <p>We'd love to hear from you. Reach out for any inquiries, speaking engagements, or ministry connections.</p>
+            <p class="header-subtitle">We'd love to hear from you. Reach out for any inquiries, speaking engagements, or ministry connections.</p>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section style="background:var(--white)">
         <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Reach Out</span>
+                <h2 class="section-title">Connect With PY's Team</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info-card" data-aos="fade-right">
-                    <h3>Connect With PY</h3>
+                    <h3>Contact Information</h3>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-item-text"><strong>Location</strong><span>Abeokuta, Ogun State, Nigeria</span></div>
+                        <div class="contact-item-text">
+                            <strong>Location</strong>
+                            <span>Ibadan, Oyo State, Nigeria</span>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-church"></i></div>
-                        <div class="contact-item-text"><strong>Church</strong><span>SPAC Church Worldwide</span></div>
+                        <div class="contact-item-text">
+                            <strong>Church</strong>
+                            <span>SPAC Church Worldwide</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-item-text">
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/2348066839398" target="_blank" rel="noopener">+234 806 683 9398</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-item-text">
+                            <strong>Email</strong>
+                            <a href="mailto:okewunmitimileyin23@gmail.com">okewunmitimileyin23@gmail.com</a>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-book"></i></div>
-                        <div class="contact-item-text"><strong>Book</strong><a href="https://selar.com/showlove/yomiokewunmienis" target="_blank">Get "Even There Is Something in Nothing"</a></div>
+                        <div class="contact-item-text">
+                            <strong>Book</strong>
+                            <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener">Get "Even There Is Something in Nothing"</a>
+                        </div>
                     </div>
                     <div class="social-links-grid">
-                        <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" class="social-link-card fb"><i class="fab fa-facebook-f"></i> Facebook</a>
-                        <a href="https://www.instagram.com/yomi_okewunmi" target="_blank" rel="noopener" class="social-link-card ig"><i class="fab fa-instagram"></i> Instagram</a>
-                        <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" class="social-link-card shop"><i class="fas fa-store"></i> Selar Store</a>
+                        <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" class="social-link-card fb">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/yomi_okewunmi" target="_blank" rel="noopener" class="social-link-card ig">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://wa.me/2348066839398" target="_blank" rel="noopener" class="social-link-card wa">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" class="social-link-card shop">
+                            <i class="fas fa-store"></i> Selar Store
+                        </a>
                     </div>
                 </div>
 
-                <!-- Quick Message Form -->
+                <!-- Contact Form -->
                 <div class="form-wrapper" data-aos="fade-left">
                     <h3>Send a Message</h3>
-                    <form id="contactForm" action="#" method="POST">
-                        <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
-                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
-                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="How can we help?"></div>
-                        <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Your message..." required></textarea></div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    <div class="form-feedback" id="formFeedback"></div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="How can we help?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Ready to Book PY?</h2>
+            <p>Invite Pastor Yomi to speak at your next event — conferences, church services, youth programs, and more.</p>
+            <a href="invite.html" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i> Book PY Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">PY<span>.</span></div>
         <p class="footer-tagline">"As Africans, We Can."</p>
         <div class="footer-social">
-            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/yomi_okewunmi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener"><i class="fas fa-store"></i></a>
+            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/2348066839398" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store">
+                <i class="fas fa-store"></i>
+            </a>
         </div>
-        <div class="footer-bottom"><p>&copy; 2024 Pastor Yomi Okewunmi. Built by Triangle Tech.</p></div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p>
+        </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
-        window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hidden')},1200)});
-        AOS.init({duration:800,easing:'ease-out-cubic',once:true,offset:60});
-        const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
-        const mt=document.getElementById('mobileToggle'),nl=document.getElementById('navLinks');
-        mt.addEventListener('click',()=>{nl.classList.toggle('active');const i=mt.querySelector('i');if(nl.classList.contains('active')){i.classList.remove('fa-bars');i.classList.add('fa-times')}else{i.classList.remove('fa-times');i.classList.add('fa-bars')}});
-        document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>{nl.classList.remove('active');mt.querySelector('i').classList.remove('fa-times');mt.querySelector('i').classList.add('fa-bars')})});
-        document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you for your message! We will get back to you shortly.');this.reset()});
-        const io=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){const img=en.target;if(img.dataset.src){img.src=img.dataset.src;img.onload=()=>img.classList.add('loaded')}io.unobserve(img)}})},{rootMargin:'200px 0px'});
-        document.querySelectorAll('img.lazy').forEach(i=>io.observe(i));
+        // ============ LOADING SCREEN ============
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1200);
+        });
+
+        // ============ AOS INIT ============
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60,
+            disable: false,
+        });
+
+        // ============ MOBILE NAV (Apple-Style, Fixed) ============
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+        
+        function openNav() {
+            navLinks.classList.add('active');
+            if (navOverlay) navOverlay.classList.add('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = `-${window.scrollY}px`;
+        }
+        
+        function closeNav() {
+            navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+            const scrollY = document.body.style.top;
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+        }
+        
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navLinks.classList.contains('active')) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        });
+        
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeNav);
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeNav();
+            });
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeNav();
+            }
+        });
+
+        // ============ WHATSAPP & GMAIL INTEGRATION ============
+        const whatsappNumber = '+2348066839398';
+        const gmailAddress = 'okewunmitimileyin23@gmail.com';
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your actual EmailJS public key
+        })();
+
+        function showFeedback(type, message) {
+            const feedback = document.getElementById('formFeedback');
+            feedback.className = 'form-feedback ' + type;
+            feedback.textContent = message;
+            feedback.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 8000);
+            }
+        }
+
+        function formatWhatsAppMessage(formData) {
+            return `*NEW MESSAGE - PY CONTACT*\n\n` +
+                   `👤 *Full Name:* ${formData.name}\n` +
+                   `📧 *Email:* ${formData.email}\n` +
+                   `📋 *Subject:* ${formData.subject || 'Not specified'}\n` +
+                   `📝 *Message:* ${formData.message}\n\n` +
+                   `_Sent from PY Digital Platform_`;
+        }
+
+        function sendToWhatsApp(formData) {
+            const message = formatWhatsAppMessage(formData);
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${encodedMessage}`;
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = whatsappURL;
+            document.body.appendChild(iframe);
+            
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 5000);
+            
+            console.log('📱 WhatsApp message sent to:', whatsappNumber);
+            return true;
+        }
+
+        function sendToGmail(formData) {
+            const templateParams = {
+                to_email: gmailAddress,
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject || 'General Inquiry',
+                message: formData.message,
+                email_subject: `New Contact Message from ${formData.name} - ${formData.subject || 'General Inquiry'}`
+            };
+
+            return emailjs.send('service_py', 'template_contact', templateParams)
+                .then(function(response) {
+                    console.log('📧 Email sent via EmailJS:', response.status);
+                    return true;
+                })
+                .catch(function(error) {
+                    console.log('⚠️ EmailJS failed, using mailto fallback:', error);
+                    const mailSubject = `New Contact Message from ${formData.name} - ${formData.subject || 'General Inquiry'}`;
+                    const mailBody = `NEW MESSAGE - PY CONTACT\n\n` +
+                                    `Full Name: ${formData.name}\n` +
+                                    `Email: ${formData.email}\n` +
+                                    `Subject: ${formData.subject || 'Not specified'}\n` +
+                                    `Message: ${formData.message}\n\n` +
+                                    `Sent from PY Digital Platform`;
+                    
+                    const mailtoURL = `mailto:${gmailAddress}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+                    
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.src = mailtoURL;
+                    document.body.appendChild(iframe);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(iframe);
+                    }, 5000);
+                    
+                    return true;
+                });
+        }
+
+        // ============ FORM SUBMISSION ============
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalHTML = submitBtn.innerHTML;
+            
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                message: document.getElementById('message').value.trim()
+            };
+
+            if (!formData.name || !formData.email || !formData.message) {
+                showFeedback('error', 'Please fill in all required fields marked with *');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFeedback('error', 'Please enter a valid email address');
+                return;
+            }
+
+            showFeedback('loading', '⏳ Sending your message...');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            try {
+                const whatsappSent = sendToWhatsApp(formData);
+                const gmailSent = await sendToGmail(formData);
+                
+                if (whatsappSent && gmailSent) {
+                    showFeedback('success', '✅ Message sent successfully! We will get back to you shortly via email or WhatsApp.');
+                    this.reset();
+                    document.getElementById('formFeedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    console.log('🎉 Contact message sent to both WhatsApp and Gmail');
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                console.error('❌ Submission error:', error);
+                showFeedback('error', '⚠️ Something went wrong. Please try again or contact us directly via WhatsApp: ' + whatsappNumber);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+            }
+        });
+
+        // ============ LAZY LOADING ============
+        const lazyImages = document.querySelectorAll('img.lazy');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.onload = () => img.classList.add('loaded');
+                        img.onerror = () => img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        console.log('%c PY Contact Page %c Loaded ',
+            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
+            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
+        console.log('%c 📍 Ibadan, Oyo State %c | %c WhatsApp: ' + whatsappNumber + ' %c | %c Gmail: ' + gmailAddress,
+            'color:#D4A84B;', '', 'color:#25D366;', '', 'color:#EA4335;');
     </script>
 </body>
 </html>
