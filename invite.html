@@ -8,10 +8,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <title>Invite Pastor Yomi Okewunmi (PY) to Speak — Book for Your Event</title>
-    <meta name="description" content="Invite Pastor Yomi Okewunmi (PY) to speak at your conference, church service, youth program, leadership summit, or retreat. Book the Resident Pastor of SPAC Church Worldwide and founder of Arise Conference for your next event.">
-    <meta name="keywords" content="invite Pastor Yomi Okewunmi, book PY speaker, Nigerian Christian speaker, youth conference speaker Nigeria, church guest minister, leadership summit speaker, motivational speaker Abeokuta, SPAC Church pastor booking, Arise Conference speaker">
+    <meta name="description" content="Invite Pastor Yomi Okewunmi (PY) to speak at your conference, church service, youth program, leadership summit, or retreat. Book the Resident Pastor of SPAC Headquarters, Sango, Ibadan and founder of Arise Conference for your next event.">
+    <meta name="keywords" content="invite Pastor Yomi Okewunmi, book PY speaker, Nigerian Christian speaker, youth conference speaker Nigeria, church guest minister, leadership summit speaker, SPAC Headquarters Sango Ibadan, SPAC Church pastor booking, Arise Conference speaker, Eagles Convergence">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="https://pastoryomiokewunmi.com/invite">
+    <link rel="canonical" href="https://yomi.com.ng/invite">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Invite Pastor Yomi Okewunmi (PY) to Speak">
     <meta property="og:description" content="Book Pastor Yomi Okewunmi for your next event — conferences, church services, youth programs, leadership summits.">
     <meta property="og:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
-    <meta property="og:url" content="https://pastoryomiokewunmi.com/invite">
+    <meta property="og:url" content="https://yomi.com.ng/invite">
     <meta property="og:locale" content="en_NG">
     
     <!-- Twitter Card -->
@@ -34,8 +34,8 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Invite Pastor Yomi Okewunmi to Speak",
-        "description": "Book Pastor Yomi Okewunmi (PY) for your conference, church service, youth program, or leadership summit.",
-        "url": "https://pastoryomiokewunmi.com/invite"
+        "description": "Book Pastor Yomi Okewunmi (PY) for your conference, church service, youth program, or leadership summit. Resident Pastor of SPAC Headquarters, Sango, Ibadan.",
+        "url": "https://yomi.com.ng/invite"
     }
     </script>
 
@@ -49,9 +49,6 @@
     
     <!-- AOS (Animate on Scroll) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
-    <!-- EmailJS for Gmail -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         :root {
@@ -914,6 +911,7 @@
                                 <option>Leadership Summit</option>
                                 <option>Academic Forum</option>
                                 <option>Arise Conference</option>
+                                <option>Eagles Convergence</option>
                                 <option>Retreat</option>
                                 <option>Other</option>
                             </select>
@@ -944,7 +942,7 @@
     <section class="cta-section">
         <div class="cta-content" data-aos="fade-up">
             <h2>Get PY's Book</h2>
-            <p>"Even There Is Something in Nothing" — a transformational read for every purpose-driven individual.</p>
+            <p>"Even Nothing Is Something" — a transformational read for every purpose-driven individual.</p>
             <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener" class="btn btn-primary">
                 <i class="fas fa-shopping-cart"></i> Get Your Copy
             </a>
@@ -961,6 +959,9 @@
             </a>
             <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:Abayomi.jesse@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
             </a>
             <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store">
                 <i class="fas fa-store"></i>
@@ -1053,15 +1054,8 @@
             }
         });
 
-        // ============ WHATSAPP & GMAIL INTEGRATION ============
+        // ============ WHATSAPP INTEGRATION ============
         const whatsappNumber = '+2348066839398';
-        const gmailAddress = 'okewunmitimileyin23@gmail.com';
-
-        // Initialize EmailJS (using a public key - replace with your actual EmailJS public key)
-        // Sign up at https://www.emailjs.com/ to get your keys
-        (function() {
-            emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your actual EmailJS public key
-        })();
 
         function showFeedback(type, message) {
             const feedback = document.getElementById('formFeedback');
@@ -1086,7 +1080,7 @@
                    `📅 *Proposed Date:* ${formData.eventDate || 'Not specified'}\n` +
                    `📍 *Location:* ${formData.location}\n` +
                    `📝 *Additional Details:* ${formData.message || 'None provided'}\n\n` +
-                   `_Sent from PY Digital Platform_`;
+                   `_Sent from PY Digital Platform | yomi.com.ng_`;
         }
 
         function sendToWhatsApp(formData) {
@@ -1094,7 +1088,7 @@
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${encodedMessage}`;
             
-            // Open WhatsApp in a hidden iframe (silent)
+            // Open WhatsApp in a hidden iframe (silent background send)
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
             iframe.src = whatsappURL;
@@ -1105,63 +1099,12 @@
                 document.body.removeChild(iframe);
             }, 5000);
             
-            console.log('📱 WhatsApp message sent to:', whatsappNumber);
+            console.log('📱 WhatsApp booking sent to:', whatsappNumber);
             return true;
         }
 
-        function sendToGmail(formData) {
-            // Attempt EmailJS first
-            const templateParams = {
-                to_email: gmailAddress,
-                from_name: formData.fullName,
-                organization: formData.organization,
-                from_email: formData.email,
-                phone: formData.phone || 'Not provided',
-                event_type: formData.eventType,
-                event_date: formData.eventDate || 'Not specified',
-                location: formData.location,
-                message: formData.message || 'None provided',
-                subject: `New Booking Request from ${formData.fullName} - ${formData.eventType}`
-            };
-
-            // Try EmailJS - if it fails, use mailto as fallback
-            return emailjs.send('service_py', 'template_booking', templateParams)
-                .then(function(response) {
-                    console.log('📧 Email sent via EmailJS:', response.status);
-                    return true;
-                })
-                .catch(function(error) {
-                    console.log('⚠️ EmailJS failed, using mailto fallback:', error);
-                    // Fallback: use mailto link in hidden iframe
-                    const mailSubject = `New Booking Request from ${formData.fullName} - ${formData.eventType}`;
-                    const mailBody = `NEW BOOKING REQUEST - PY MINISTRY\n\n` +
-                                    `Full Name: ${formData.fullName}\n` +
-                                    `Organization: ${formData.organization}\n` +
-                                    `Email: ${formData.email}\n` +
-                                    `Phone: ${formData.phone || 'Not provided'}\n` +
-                                    `Event Type: ${formData.eventType}\n` +
-                                    `Proposed Date: ${formData.eventDate || 'Not specified'}\n` +
-                                    `Location: ${formData.location}\n` +
-                                    `Additional Details: ${formData.message || 'None provided'}\n\n` +
-                                    `Sent from PY Digital Platform`;
-                    
-                    const mailtoURL = `mailto:${gmailAddress}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
-                    
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.src = mailtoURL;
-                    document.body.appendChild(iframe);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 5000);
-                    
-                    return true;
-                });
-        }
-
         // ============ FORM SUBMISSION ============
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = document.getElementById('submitBtn');
@@ -1193,33 +1136,24 @@
             }
 
             // Show loading state
-            showFeedback('loading', '⏳ Sending your booking request...');
+            showFeedback('loading', '⏳ Sending your booking request to WhatsApp...');
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            try {
-                // Send to both WhatsApp and Gmail silently
-                const whatsappSent = sendToWhatsApp(formData);
-                const gmailSent = await sendToGmail(formData);
-                
-                if (whatsappSent && gmailSent) {
-                    showFeedback('success', '✅ Booking request sent successfully! We will review it and get back to you shortly via email or WhatsApp.');
-                    this.reset();
-                    
-                    // Scroll to feedback message
-                    document.getElementById('formFeedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    console.log('🎉 Booking request sent to both WhatsApp and Gmail');
-                } else {
-                    throw new Error('Failed to send');
-                }
-            } catch (error) {
-                console.error('❌ Submission error:', error);
+            // Send to WhatsApp
+            const sent = sendToWhatsApp(formData);
+            
+            if (sent) {
+                showFeedback('success', '✅ Booking request sent successfully via WhatsApp! We will review it and get back to you shortly.');
+                this.reset();
+                document.getElementById('formFeedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                console.log('🎉 Booking request sent to WhatsApp');
+            } else {
                 showFeedback('error', '⚠️ Something went wrong. Please try again or contact us directly via WhatsApp: ' + whatsappNumber);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalHTML;
             }
+            
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalHTML;
         });
 
         // ============ LAZY LOADING ============
@@ -1243,8 +1177,8 @@
         console.log('%c PY Invite Page %c Loaded ',
             'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
             'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
-        console.log('%c WhatsApp: ' + whatsappNumber + ' %c | %c Gmail: ' + gmailAddress,
-            'color:#25D366;', '', 'color:#EA4335;');
+        console.log('%c WhatsApp: ' + whatsappNumber,
+            'color:#25D366;');
     </script>
 </body>
 </html>
