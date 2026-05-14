@@ -481,10 +481,13 @@
             opacity: 0;
             transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             transform: scale(1.08);
+            will-change: opacity, transform;
+            z-index: 0;
         }
         .hero-slide.active {
             opacity: 0.35;
             transform: scale(1);
+            z-index: 1;
         }
         .hero-overlay {
             position: absolute;
@@ -493,7 +496,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, rgba(26,15,46,0.92) 0%, rgba(26,15,46,0.55) 50%, rgba(13,107,74,0.35) 100%);
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
         .hero-particles {
@@ -502,7 +505,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
         }
         .hero-slide-indicators {
@@ -510,7 +513,7 @@
             bottom: 5rem;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 4;
+            z-index: 5;
             display: flex;
             gap: 0.6rem;
         }
@@ -533,7 +536,7 @@
         }
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 4;
             max-width: 1200px;
             margin: 0 auto;
             padding: 8rem 2rem 4rem;
@@ -705,7 +708,7 @@
             bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 3;
+            z-index: 4;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1194,12 +1197,12 @@
 
     <!-- Hero Section with 4-Image Slideshow -->
     <section class="hero" id="home">
-        <!-- Background Slideshow - 4 Different Images -->
+        <!-- Background Slideshow - 4 Different Images ALL LOADED -->
         <div class="hero-slides" id="heroSlides">
             <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="Pastor Yomi Okewunmi" class="hero-slide active" data-index="0">
-            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="Pastor Yomi ministering" class="hero-slide lazy" data-index="1">
-            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704666652_ti6jeg.jpg" alt="Pastor Yomi at event" class="hero-slide lazy" data-index="2">
-            <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704595241_vnxoob.jpg" alt="Pastor Yomi speaking" class="hero-slide lazy" data-index="3">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="Pastor Yomi ministering" class="hero-slide" data-index="1">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704666652_ti6jeg.jpg" alt="Pastor Yomi at event" class="hero-slide" data-index="2">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704595241_vnxoob.jpg" alt="Pastor Yomi speaking" class="hero-slide" data-index="3">
         </div>
         <div class="hero-overlay"></div>
         <canvas class="hero-particles" id="particleCanvas"></canvas>
@@ -1483,23 +1486,19 @@
         let currentSlide = 0;
         let slideInterval;
         const slideDuration = 4000; // 4 seconds per slide
-
-        // Lazy-load slides that aren't active yet
-        function loadSlide(index) {
-            const slide = slides[index];
-            if (!slide) return;
-            if (slide.dataset.src && !slide.src) {
-                slide.src = slide.dataset.src;
-                slide.onload = () => slide.classList.add('loaded');
-            }
-        }
+        let isTransitioning = false; // Prevent rapid clicks
 
         function goToSlide(index) {
+            if (isTransitioning) return; // Prevent overlap
             if (index === currentSlide) return;
             if (index < 0 || index >= slides.length) return;
             
+            isTransitioning = true;
+            
             // Remove active from all slides and dots
-            slides.forEach(s => s.classList.remove('active'));
+            slides.forEach(s => {
+                s.classList.remove('active');
+            });
             dots.forEach(d => d.classList.remove('active'));
             
             // Set new active
@@ -1507,12 +1506,10 @@
             dots[index].classList.add('active');
             currentSlide = index;
             
-            // Preload next slides for smooth transition
-            loadSlide(index);
-            const next1 = (index + 1) % slides.length;
-            const next2 = (index + 2) % slides.length;
-            loadSlide(next1);
-            loadSlide(next2);
+            // Allow next transition after animation completes
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 1200); // Match CSS transition duration
         }
 
         function nextSlide() {
@@ -1520,12 +1517,12 @@
             goToSlide(next);
         }
 
-        // Preload first 3 slides immediately
-        loadSlide(0);
-        loadSlide(1);
-        loadSlide(2);
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(prev);
+        }
 
-        // Start autoplay
+        // Start autoplay immediately
         slideInterval = setInterval(nextSlide, slideDuration);
 
         // Dot click handlers
@@ -1567,17 +1564,28 @@
                     clearInterval(slideInterval);
                     if (diff > 0) {
                         // Swipe left - next slide
-                        const next = (currentSlide + 1) % slides.length;
-                        goToSlide(next);
+                        nextSlide();
                     } else {
                         // Swipe right - previous slide
-                        const prev = (currentSlide - 1 + slides.length) % slides.length;
-                        goToSlide(prev);
+                        prevSlide();
                     }
                     slideInterval = setInterval(nextSlide, slideDuration);
                 }
             });
         }
+
+        // ============ KEYBOARD NAVIGATION ============
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                clearInterval(slideInterval);
+                nextSlide();
+                slideInterval = setInterval(nextSlide, slideDuration);
+            } else if (e.key === 'ArrowLeft') {
+                clearInterval(slideInterval);
+                prevSlide();
+                slideInterval = setInterval(nextSlide, slideDuration);
+            }
+        });
 
         // ============ NAVBAR SCROLL ============
         const navbar = document.getElementById('navbar');
