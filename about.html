@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="theme-color" content="#1A0F2E">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,14 +13,22 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://pastoryomiokewunmi.com/about">
     
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pastor Yomi Okewunmi (PY)">
     <meta property="og:title" content="About Pastor Yomi Okewunmi (PY) — Minister, Scholar & Visionary Leader">
     <meta property="og:description" content="Dynamic minister, First Class scholar, author, and founder of multiple youth movements. Discover the life and legacy of PY.">
     <meta property="og:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
     <meta property="og:url" content="https://pastoryomiokewunmi.com/about">
+    <meta property="og:locale" content="en_NG">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Pastor Yomi Okewunmi (PY)">
+    <meta name="twitter:description" content="Dynamic minister, First Class scholar, and author empowering a generation through SPAC Church, Arise Conference, and Afrowecanism.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
     
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -29,21 +37,33 @@
             "@type": "Person",
             "name": "Pastor Yomi Okewunmi",
             "alternateName": "PY",
-            "description": "Dynamic minister, scholar, mentor, author, and visionary leader from Abeokuta, Ogun State.",
+            "description": "Dynamic minister, scholar, mentor, author, and visionary leader from Abeokuta, Ogun State. Resident Pastor of SPAC Church Worldwide, founder of Arise Conference, Afrowecanism, and Edutop Scholar.",
             "url": "https://pastoryomiokewunmi.com",
             "image": "https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg",
             "sameAs": [
                 "https://www.facebook.com/yomi.okewunmi",
                 "https://www.instagram.com/yomi_okewunmi"
+            ],
+            "jobTitle": "Resident Pastor, Author, Scholar",
+            "worksFor": { "@type": "Organization", "name": "SPAC Church Worldwide" },
+            "homeLocation": { "@type": "Place", "name": "Abeokuta, Ogun State, Nigeria" },
+            "alumniOf": [
+                { "@type": "CollegeOrUniversity", "name": "University of Ibadan" },
+                { "@type": "CollegeOrUniversity", "name": "The Polytechnic Ibadan" }
             ]
         }
     }
     </script>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
@@ -58,9 +78,11 @@
             --ivory-dark: #EBE3D3;
             --emerald: #0D6B4A;
             --emerald-light: #1A8B63;
+            --emerald-dark: #094D35;
             --soft-gold: #F5E6C8;
             --rich-black: #0D0D0D;
             --white: #FFFFFF;
+            --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
             --gray-200: #E5E7EB;
             --gray-300: #D1D5DB;
@@ -74,118 +96,748 @@
             --font-elegant: 'Cinzel', Georgia, serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
             --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.05);
             --shadow-xl: 0 20px 50px -6px rgba(0,0,0,0.1), 0 8px 20px -8px rgba(0,0,0,0.06);
             --shadow-gold: 0 10px 40px -10px rgba(200,150,62,0.3);
             --shadow-gold-lg: 0 25px 60px -15px rgba(200,150,62,0.35);
         }
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent;overflow-y:scroll}
-        body{font-family:var(--font-body);background-color:var(--ivory-light);color:var(--rich-black);line-height:1.7;overflow-x:hidden;min-height:100vh}
 
-        /* Navbar - Original Style */
-        .navbar{position:fixed;top:0;left:0;width:100%;z-index:10000;padding:1.2rem 2rem;transition:all .4s var(--transition-smooth);display:flex;align-items:center;justify-content:space-between}
-        .navbar.scrolled{background:rgba(26,15,46,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:.7rem 2rem;box-shadow:0 4px 30px rgba(0,0,0,0.3);border-bottom:1px solid rgba(200,150,62,0.15)}
-        .nav-logo{font-family:var(--font-elegant);font-size:1.6rem;font-weight:700;color:var(--white);letter-spacing:.08em;text-decoration:none;z-index:10001}
-        .nav-logo span{color:var(--royal-gold)}
-        .nav-links{display:flex;list-style:none;gap:2rem;align-items:center}
-        .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:500;font-size:.9rem;letter-spacing:.04em;transition:color .3s;position:relative}
-        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--royal-gold);transition:width .3s var(--transition-smooth)}
-        .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-        .nav-links a:hover,.nav-links a.active{color:var(--royal-gold)}
-        .nav-cta{background:var(--royal-gold)!important;color:var(--white)!important;padding:.6rem 1.5rem!important;border-radius:50px!important;font-weight:600!important}
-        .nav-cta:hover{background:var(--royal-gold-light)!important;transform:translateY(-2px);box-shadow:var(--shadow-gold)}
-        .nav-cta::after{display:none!important}
-        .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:10001}
-        @media(max-width:1024px){
-            .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--royal-dark);flex-direction:column;padding:6rem 2rem 2rem;gap:1.5rem;transition:right .4s var(--transition-smooth);box-shadow:-10px 0 40px rgba(0,0,0,0.3);overflow-y:auto}
-            .nav-links.active{right:0}
-            .mobile-toggle{display:block}
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        @media(max-width:480px){.navbar{padding:1rem 1.2rem}.navbar.scrolled{padding:.6rem 1.2rem}.nav-logo{font-size:1.3rem}}
 
-        /* Loader */
-        .loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--royal-dark);display:flex;align-items:center;justify-content:center;z-index:999999;transition:opacity .8s ease,visibility .8s ease}
-        .loader-wrapper.hidden{opacity:0;visibility:hidden;pointer-events:none}
-        .loader-image-container{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 2rem;border:3px solid rgba(200,150,62,0.5);animation:loaderZoom 2s ease-in-out infinite;box-shadow:0 0 40px rgba(200,150,62,0.3)}
-        .loader-image-container img{width:100%;height:100%;object-fit:cover}
-        @keyframes loaderZoom{0%,100%{transform:scale(1);box-shadow:0 0 40px rgba(200,150,62,0.3)}50%{transform:scale(1.15);box-shadow:0 0 70px rgba(200,150,62,0.5)}}
-        .loader-logo{font-family:var(--font-elegant);font-size:2.5rem;font-weight:700;color:var(--royal-gold);letter-spacing:.15em}
-        .loader-bar{width:160px;height:2px;background:rgba(200,150,62,0.2);margin:1.2rem auto 0;border-radius:2px;overflow:hidden}
-        .loader-bar-fill{height:100%;background:var(--royal-gold);border-radius:2px;animation:loaderBar 1.8s ease-in-out infinite;width:0%}
-        @keyframes loaderBar{0%{width:0;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0;margin-left:100%}}
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--ivory-light);
+            color: var(--rich-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+            cursor: default;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Loading Screen */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--royal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid rgba(200,150,62,0.5);
+            animation: loaderZoom 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(200,150,62,0.3);
+        }
+        .loader-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes loaderZoom {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(200,150,62,0.3); }
+            50% { transform: scale(1.15); box-shadow: 0 0 70px rgba(200,150,62,0.5); }
+        }
+        .loader-logo {
+            font-family: var(--font-elegant);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--royal-gold);
+            letter-spacing: 0.15em;
+        }
+        .loader-bar {
+            width: 160px;
+            height: 2px;
+            background: rgba(200,150,62,0.2);
+            margin: 1.2rem auto 0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loader-bar-fill {
+            height: 100%;
+            background: var(--royal-gold);
+            border-radius: 2px;
+            animation: loaderBar 1.8s ease-in-out infinite;
+            width: 0%;
+        }
+        @keyframes loaderBar {
+            0% { width: 0%; margin-left: 0; }
+            50% { width: 60%; margin-left: 20%; }
+            100% { width: 0%; margin-left: 100%; }
+        }
+
+        /* Navbar - Apple Style (Matched to Homepage) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 1rem 2rem;
+            transition: all 0.4s var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(26,15,46,0.92);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 30px rgba(0,0,0,0.4);
+            border-bottom: 1px solid rgba(200,150,62,0.1);
+        }
+        .nav-logo {
+            font-family: var(--font-elegant);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            z-index: 10001;
+            position: relative;
+        }
+        .nav-logo span {
+            color: var(--royal-gold);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--royal-gold);
+            transition: width 0.3s var(--transition-smooth);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--royal-gold);
+        }
+        .nav-cta {
+            background: var(--royal-gold) !important;
+            color: var(--white) !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s var(--transition-smooth) !important;
+        }
+        .nav-cta:hover {
+            background: var(--royal-gold-light) !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+            color: var(--white) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 10001;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+        }
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 320px;
+                max-width: 85vw;
+                height: 100vh;
+                height: 100dvh;
+                background: rgba(26,15,46,0.98);
+                backdrop-filter: blur(40px) saturate(180%);
+                -webkit-backdrop-filter: blur(40px) saturate(180%);
+                flex-direction: column;
+                padding: 6rem 2.5rem 2.5rem;
+                gap: 1.8rem;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+                box-shadow: -10px 0 50px rgba(0,0,0,0.5);
+                overflow-y: auto;
+                z-index: 9999;
+                border-left: 1px solid rgba(200,150,62,0.15);
+            }
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.3rem 0;
+                display: block;
+            }
+            .nav-cta {
+                text-align: center;
+                display: block !important;
+                margin-top: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.9rem 1rem;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                width: 100%;
+                max-width: 100vw;
+                padding: 6rem 2rem 2rem;
+            }
+        }
 
         /* Page Header */
-        .page-header{position:relative;padding:10rem 2rem 5rem;background:var(--royal-dark);text-align:center;overflow:hidden}
-        .page-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,15,46,0.95)0%,rgba(26,15,46,0.7)50%,rgba(13,107,74,0.3)100%);z-index:1}
-        .page-header-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
-        .page-header .page-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--royal-gold);text-transform:uppercase;margin-bottom:.8rem}
-        .page-header h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:1rem}
-        .page-header p{color:rgba(255,255,255,0.65);font-size:1.05rem;max-width:600px;margin:0 auto}
+        .page-header {
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            background: var(--royal-dark);
+            text-align: center;
+            overflow: hidden;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+        }
+        .page-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26,15,46,0.9) 0%, rgba(26,15,46,0.55) 50%, rgba(13,107,74,0.3) 100%);
+            z-index: 1;
+        }
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-header .page-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            background: rgba(200,150,62,0.15);
+            border: 1px solid rgba(200,150,62,0.4);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+        }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .page-header h1 span {
+            color: var(--royal-gold);
+        }
+        .page-header .header-subtitle {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
 
         /* Section Styles */
-        section{padding:5rem 2rem}
-        .section-header{text-align:center;margin-bottom:3.5rem}
-        .section-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--royal-gold);text-transform:uppercase;margin-bottom:.8rem}
-        .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--royal-dark);line-height:1.2;margin-bottom:1rem}
-        .section-line{width:60px;height:3px;background:var(--royal-gold);margin:0 auto;border-radius:3px}
-        .container{max-width:1100px;margin:0 auto}
-        @media(max-width:480px){section{padding:3.5rem 1rem}}
+        section {
+            padding: 5rem 2rem;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--royal-dark);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--royal-gold);
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        @media (max-width: 480px) {
+            section {
+                padding: 3.5rem 1rem;
+            }
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+            .page-header {
+                padding: 7rem 1rem 3rem;
+                min-height: 35vh;
+            }
+        }
 
         /* Biography Detail */
-        .bio-section{background:var(--white)}
-        .bio-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
-        .bio-image-wrapper{position:sticky;top:6rem}
-        .bio-image-frame{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-xl);border:3px solid rgba(200,150,62,0.3)}
-        .bio-image-frame img{width:100%;display:block}
-        .bio-content h3{font-family:var(--font-display);font-size:1.6rem;color:var(--royal-dark);margin-bottom:1rem}
-        .bio-content p{color:var(--gray-600);margin-bottom:1.2rem;line-height:1.85;font-size:.95rem}
-        .bio-content strong{color:var(--royal-dark)}
-        .bio-highlight{background:var(--soft-gold);border-left:3px solid var(--royal-gold);padding:1.2rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-style:italic;color:var(--royal-dark)}
-        @media(max-width:768px){.bio-grid{grid-template-columns:1fr;gap:2rem}.bio-image-wrapper{position:static;max-width:350px;margin:0 auto}}
+        .bio-section {
+            background: var(--white);
+        }
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .bio-image-wrapper {
+            position: sticky;
+            top: 6rem;
+        }
+        .bio-image-frame {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 3px solid rgba(200,150,62,0.3);
+            position: relative;
+        }
+        .bio-image-frame img {
+            width: 100%;
+            display: block;
+        }
+        .bio-image-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            background: radial-gradient(circle, rgba(200,150,62,0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .bio-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--royal-dark);
+            margin-bottom: 1rem;
+        }
+        .bio-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.2rem;
+            line-height: 1.85;
+            font-size: 0.95rem;
+        }
+        .bio-content strong {
+            color: var(--royal-dark);
+        }
+        .bio-highlight {
+            background: var(--soft-gold);
+            border-left: 4px solid var(--royal-gold);
+            padding: 1.5rem 1.8rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--royal-dark);
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .bio-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .bio-image-wrapper {
+                position: static;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            .bio-content h3 {
+                text-align: center;
+            }
+        }
 
         /* Timeline */
-        .timeline-section{background:var(--ivory)}
-        .timeline{position:relative;max-width:800px;margin:0 auto}
-        .timeline::before{content:'';position:absolute;left:30px;top:0;width:2px;height:100%;background:var(--royal-gold);opacity:.3}
-        .timeline-item{position:relative;padding-left:70px;margin-bottom:2.5rem}
-        .timeline-dot{position:absolute;left:20px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--royal-gold);border:4px solid var(--ivory);box-shadow:0 0 0 3px var(--royal-gold);z-index:1}
-        .timeline-item h4{font-family:var(--font-display);font-size:1.2rem;color:var(--royal-dark);margin-bottom:.3rem}
-        .timeline-item .timeline-date{font-size:.8rem;color:var(--royal-gold);font-weight:600;letter-spacing:.05em;margin-bottom:.5rem}
-        .timeline-item p{color:var(--gray-600);font-size:.9rem;line-height:1.7}
-        @media(max-width:480px){.timeline::before{left:20px}.timeline-item{padding-left:55px}.timeline-dot{left:10px;width:18px;height:18px}}
+        .timeline-section {
+            background: var(--ivory);
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--royal-gold), rgba(200,150,62,0.15));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 75px;
+            margin-bottom: 3rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 19px;
+            top: 4px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--royal-gold);
+            border: 4px solid var(--ivory);
+            box-shadow: 0 0 0 4px rgba(200,150,62,0.3);
+            z-index: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(200,150,62,0.15);
+        }
+        .timeline-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--royal-dark);
+            margin-bottom: 0.2rem;
+        }
+        .timeline-item .timeline-date {
+            font-size: 0.8rem;
+            color: var(--royal-gold);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .timeline-item p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        @media (max-width: 480px) {
+            .timeline::before {
+                left: 18px;
+            }
+            .timeline-item {
+                padding-left: 55px;
+                margin-bottom: 2.5rem;
+            }
+            .timeline-dot {
+                left: 8px;
+                width: 20px;
+                height: 20px;
+                border-width: 3px;
+            }
+            .timeline-item h4 {
+                font-size: 1.15rem;
+            }
+        }
 
-        /* CTA */
-        .cta-section{background:linear-gradient(135deg,var(--royal-dark)0%,var(--royal-purple)100%);text-align:center;position:relative;overflow:hidden}
-        .cta-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
-        .cta-content h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--white);margin-bottom:1rem}
-        .cta-content p{color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1.05rem}
-        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;letter-spacing:.03em;transition:all .3s var(--transition-smooth);border:none;font-family:var(--font-body);white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent}
-        .btn-primary{background:var(--royal-gold);color:var(--white);box-shadow:var(--shadow-gold)}
-        .btn-primary:hover{background:var(--royal-gold-light);transform:translateY(-3px);box-shadow:var(--shadow-gold-lg)}
+        /* Family Section */
+        .family-section {
+            background: var(--white);
+            text-align: center;
+        }
+        .family-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--ivory);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--ivory-dark);
+        }
+        .family-card .family-icon {
+            font-size: 3rem;
+            color: var(--royal-gold);
+            margin-bottom: 1rem;
+        }
+        .family-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--royal-dark);
+            margin-bottom: 0.8rem;
+        }
+        .family-card p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .family-card strong {
+            color: var(--royal-dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--royal-dark) 0%, var(--royal-purple) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200,150,62,0.1) 0%, transparent 60%);
+            animation: ctaGlow 8s linear infinite;
+        }
+        @keyframes ctaGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-content p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: all 0.3s var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-body);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--royal-gold);
+            color: var(--white);
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-primary:hover {
+            background: var(--royal-gold-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold-lg);
+        }
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-gold);
+        }
 
         /* Footer */
-        footer{background:var(--royal-dark);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem;text-align:center;border-top:1px solid rgba(200,150,62,0.15)}
-        .footer-logo{font-family:var(--font-elegant);font-size:1.8rem;color:var(--white);margin-bottom:1rem}
-        .footer-logo span{color:var(--royal-gold)}
-        .footer-social{display:flex;justify-content:center;gap:1.2rem;margin:1.5rem 0;flex-wrap:wrap}
-        .footer-social a{width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:all .3s;text-decoration:none}
-        .footer-social a:hover{background:var(--royal-gold);transform:translateY(-3px)}
-        .footer-tagline{font-style:italic;color:var(--royal-gold);margin-bottom:1rem;font-size:1.1rem}
-        .footer-bottom{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);font-size:.85rem}
-        img.lazy{opacity:0;transition:opacity .6s ease}
-        img.lazy.loaded{opacity:1}
+        footer {
+            background: var(--royal-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(200,150,62,0.15);
+        }
+        .footer-logo {
+            font-family: var(--font-elegant);
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .footer-logo span {
+            color: var(--royal-gold);
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .footer-social a:hover {
+            background: var(--royal-gold);
+            transform: translateY(-3px);
+        }
+        .footer-tagline {
+            font-style: italic;
+            color: var(--royal-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 480px) {
+            footer {
+                padding: 3rem 1rem 1.5rem;
+            }
+        }
+
+        /* Lazy load */
+        img.lazy {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        img.lazy.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Loader -->
+    <!-- Loading Screen -->
     <div class="loader-wrapper" id="loader">
-        <div class="loader-image-container"><img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="PY"></div>
-        <div class="loader-logo">PY</div>
-        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        <div class="loader-content">
+            <div class="loader-image-container">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="PY">
+            </div>
+            <div class="loader-logo">PY</div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
     </div>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
@@ -197,34 +849,60 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="invite.html" class="nav-cta">Book PY</a></li>
         </ul>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="page-header-content">
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="Pastor Yomi Okewunmi" class="page-header-bg">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content" data-aos="fade-up">
             <span class="page-tag">About</span>
-            <h1>Pastor Yomi Okewunmi</h1>
-            <p>Minister. Scholar. Author. Mentor. A life dedicated to raising purpose-driven leaders across generations.</p>
+            <h1>Pastor Yomi <span>Okewunmi</span></h1>
+            <p class="header-subtitle">Minister. Scholar. Author. Mentor. A life dedicated to raising purpose-driven leaders across generations.</p>
         </div>
     </section>
 
     <!-- Biography -->
     <section class="bio-section">
         <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Biography</span>
+                <h2 class="section-title">The Man Behind the Mission</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="bio-grid">
                 <div class="bio-image-wrapper" data-aos="fade-right">
                     <div class="bio-image-frame">
-                        <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" alt="Pastor Yomi Okewunmi" class="lazy">
+                        <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" alt="Pastor Yomi Okewunmi ministering" class="lazy">
+                        <div class="bio-image-glow"></div>
                     </div>
                 </div>
                 <div class="bio-content" data-aos="fade-left">
                     <h3>Pastor. Scholar. Visionary.</h3>
-                    <p>Pastor Yomi Okewunmi, fondly known as <strong>PY</strong>, is a dynamic minister, scholar, mentor, author, and visionary leader from <strong>Abeokuta, Ogun State, Nigeria</strong>. He is widely recognized for his impact in ministry, youth empowerment, education, and leadership development across Nigeria and beyond.</p>
-                    <p>He serves as the <strong>Resident Pastor of SPAC Church Worldwide</strong>, where he has become a respected voice in advancing God's Kingdom through the ministry of the Word and the demonstration of power. His teachings are known for their depth, clarity, and practical relevance to everyday life.</p>
-                    <div class="bio-highlight">"He is passionate about raising people who walk in purpose, excellence, and spiritual maturity."</div>
-                    <p>Pastor Yomi is the pioneer of the monthly youth gathering <strong>Arise Conference</strong>, now in its fourth year — a prophetic meeting point for young people discovering their path in God, purpose in life, and place in destiny. He is also the founder of <strong>Afrowecanism</strong>, an African ideology built on the belief: <em>"As Africans, We Can"</em>, and <strong>Edutop Scholar</strong>, an educational initiative helping students achieve academic excellence.</p>
-                    <p>He is happily married to <strong>Dr. Kenny Okewunmi</strong>, and they are blessed with two wonderful children.</p>
+                    <p>
+                        Pastor Yomi Okewunmi, fondly known as <strong>PY</strong>, is a dynamic minister, scholar, mentor, 
+                        author, and visionary leader from <strong>Abeokuta, Ogun State, Nigeria</strong>. He is widely 
+                        recognized for his impact in ministry, youth empowerment, education, and leadership development 
+                        across Nigeria and beyond.
+                    </p>
+                    <p>
+                        He serves as the <strong>Resident Pastor of SPAC Church Worldwide</strong>, where he has become a 
+                        respected voice in advancing God's Kingdom through the ministry of the Word and the demonstration 
+                        of power. His teachings are known for their depth, clarity, and practical relevance to everyday life.
+                    </p>
+                    <div class="bio-highlight">
+                        "He is passionate about raising people who walk in purpose, excellence, and spiritual maturity."
+                    </div>
+                    <p>
+                        Pastor Yomi is the pioneer of the monthly youth gathering <strong>Arise Conference</strong>, now in 
+                        its fourth year — a prophetic meeting point for young people discovering their path in God, purpose 
+                        in life, and place in destiny. He is also the founder of <strong>Afrowecanism</strong>, an African 
+                        ideology built on the belief: <em>"As Africans, We Can"</em>, and <strong>Edutop Scholar</strong>, 
+                        an educational initiative helping students achieve academic excellence.
+                    </p>
                 </div>
             </div>
         </div>
@@ -242,20 +920,41 @@
                 <div class="timeline-dot"></div>
                 <span class="timeline-date">National Diploma</span>
                 <h4>Statistics — Distinction</h4>
-                <p>The Polytechnic Ibadan. Graduated with a National Diploma in Statistics with Distinction, laying the foundation for his analytical and scholarly approach.</p>
+                <p>The Polytechnic Ibadan. Graduated with a National Diploma in Statistics with Distinction, laying the foundation for his analytical and scholarly approach to ministry and leadership.</p>
             </div>
             <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
                 <div class="timeline-dot"></div>
                 <span class="timeline-date">Bachelor of Science</span>
                 <h4>Philosophy — First Class Honours</h4>
-                <p>University of Ibadan. Achieved a First Class Honours degree in Philosophy, demonstrating exceptional intellectual capacity and critical thinking.</p>
+                <p>University of Ibadan. Achieved a First Class Honours degree in Philosophy, demonstrating exceptional intellectual capacity, critical thinking, and a deep understanding of human existence and purpose.</p>
             </div>
             <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
                 <div class="timeline-dot"></div>
                 <span class="timeline-date">Master's Degree</span>
                 <h4>Completed with Distinction</h4>
-                <p>Further advanced his academic journey with a Master's Degree completed with Distinction, reflecting the spirit of discipline and continuous growth.</p>
+                <p>Further advanced his academic journey with a Master's Degree completed with Distinction, reflecting a lifelong commitment to discipline, continuous growth, and scholarly excellence.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section class="family-section">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Family</span>
+            <h2 class="section-title">A Blessed Life</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="family-card" data-aos="fade-up">
+            <div class="family-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Happily Married</h3>
+            <p>
+                Pastor Yomi Okewunmi is happily married to <strong>Dr. Kenny Okewunmi</strong>, 
+                and together they are blessed with <strong>two wonderful children</strong>. Their 
+                union stands as a testament to God's faithfulness and serves as a model of love, 
+                partnership, and shared purpose.
+            </p>
         </div>
     </section>
 
@@ -263,8 +962,10 @@
     <section class="cta-section">
         <div class="cta-content" data-aos="fade-up">
             <h2>Invite Pastor Yomi to Speak</h2>
-            <p>Bring a transformative voice to your conference, church, or youth program.</p>
-            <a href="invite.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book PY Now</a>
+            <p>Bring a transformative voice to your conference, church, or youth program — equip, empower, and elevate lives.</p>
+            <a href="invite.html" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i> Book PY Now
+            </a>
         </div>
     </section>
 
@@ -273,24 +974,124 @@
         <div class="footer-logo">PY<span>.</span></div>
         <p class="footer-tagline">"As Africans, We Can."</p>
         <div class="footer-social">
-            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/yomi_okewunmi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener"><i class="fas fa-store"></i></a>
+            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store">
+                <i class="fas fa-store"></i>
+            </a>
         </div>
-        <div class="footer-bottom"><p>&copy; 2024 Pastor Yomi Okewunmi. Built by Triangle Tech.</p></div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p>
+        </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
-        window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hidden')},1200)});
-        AOS.init({duration:800,easing:'ease-out-cubic',once:true,offset:60});
-        const navbar=document.getElementById('navbar');
-        window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
-        const mt=document.getElementById('mobileToggle'),nl=document.getElementById('navLinks');
-        mt.addEventListener('click',()=>{nl.classList.toggle('active');const i=mt.querySelector('i');if(nl.classList.contains('active')){i.classList.remove('fa-bars');i.classList.add('fa-times')}else{i.classList.remove('fa-times');i.classList.add('fa-bars')}});
-        document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>{nl.classList.remove('active');mt.querySelector('i').classList.remove('fa-times');mt.querySelector('i').classList.add('fa-bars')})});
-        const io=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){const img=en.target;if(img.dataset.src){img.src=img.dataset.src;img.onload=()=>img.classList.add('loaded')}io.unobserve(img)}})},{rootMargin:'200px 0px'});
-        document.querySelectorAll('img.lazy').forEach(i=>io.observe(i));
+        // ============ LOADING SCREEN ============
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1200);
+        });
+
+        // ============ AOS INIT ============
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60,
+            disable: false,
+        });
+
+        // ============ MOBILE NAV (Apple-Style, Fixed) ============
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+        
+        function openNav() {
+            navLinks.classList.add('active');
+            if (navOverlay) navOverlay.classList.add('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = `-${window.scrollY}px`;
+        }
+        
+        function closeNav() {
+            navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+            const scrollY = document.body.style.top;
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+        }
+        
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navLinks.classList.contains('active')) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        });
+        
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeNav);
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeNav();
+            });
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeNav();
+            }
+        });
+
+        // ============ LAZY LOADING ============
+        const lazyImages = document.querySelectorAll('img.lazy');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.onload = () => img.classList.add('loaded');
+                        img.onerror = () => img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        console.log('%c PY About Page %c Loaded ',
+            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
+            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
     </script>
 </body>
 </html>
