@@ -13,14 +13,14 @@
     <meta name="keywords" content="Pastor Yomi Okewunmi, PY, SPAC Church, SPAC Headquarters Ibadan, Arise Conference, Eagles Convergence, Give Us This Month, Afrowecanism, Edutop Scholar, Even Nothing Is Something, youth empowerment Nigeria, motivational speaker Ibadan, Nigerian pastor, Christian author, leadership mentor, Oyo State, first class philosophy UI, PhD researcher Ibadan, Ethics Migration African Development, youth conference, African ideology, spiritual mentorship, Nigerian scholar">
     <meta name="author" content="Pastor Yomi Okewunmi">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://pastoryomiokewunmi.com/">
+    <link rel="canonical" href="https://yomi.com.ng/">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pastor Yomi Okewunmi (PY)">
     <meta property="og:title" content="Pastor Yomi Okewunmi (PY) — Minister, Scholar, Author & Visionary Leader">
-    <meta property="og:description" content="Dynamic minister, First Class scholar, PhD researcher, author of 'Even Nothing Is Something', founder of Arise Conference, Eagles Convergence, Afrowecanism, and Edutop Scholar. Empowering a generation to rise above limitations.">
-    <meta property="og:url" content="https://pastoryomiokewunmi.com/">
+    <meta property="og:description" content="Dynamic minister, First Class scholar, PhD researcher, author of 'Even Nothing Is Something', founder of Arise Conference, Eagles Convergence, Give Us This Month, Afrowecanism, and Edutop Scholar. Empowering a generation to rise above limitations.">
+    <meta property="og:url" content="https://yomi.com.ng/">
     <meta property="og:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -40,7 +40,7 @@
         "name": "Pastor Yomi Okewunmi",
         "alternateName": "PY",
         "description": "Dynamic minister, scholar, mentor, author, and visionary leader from Abeokuta, Ogun State, now based in Ibadan. Resident Pastor of SPAC Headquarters, Ibadan. Founder of Arise Conference, Eagles Convergence, Give Us This Month, Afrowecanism, and Edutop Scholar. PhD researcher at University of Ibadan focusing on Ethics, Migration, and African Development.",
-        "url": "https://pastoryomiokewunmi.com",
+        "url": "https://yomi.com.ng",
         "image": "https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg",
         "sameAs": [
             "https://www.facebook.com/yomi.okewunmi",
@@ -126,7 +126,6 @@
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             
             --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
             --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 10px -4px rgba(0,0,0,0.05);
@@ -135,1099 +134,153 @@
             --shadow-gold-lg: 0 25px 60px -15px rgba(200,150,62,0.35);
         }
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent;overflow-x:hidden;width:100%}
+        body{font-family:var(--font-body);background-color:var(--ivory-light);color:var(--rich-black);line-height:1.7;overflow-x:hidden;cursor:default;min-height:100vh;min-height:-webkit-fill-available;width:100%;position:relative}
+        @media(hover:hover)and(pointer:fine){.custom-cursor{width:20px;height:20px;border:2px solid var(--royal-gold);border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transition:width .3s,height .3s,border-color .3s,background .3s;transform:translate(-50%,-50%);mix-blend-mode:difference;display:block}.custom-cursor.hover{width:50px;height:50px;background:rgba(200,150,62,0.2);border-color:var(--royal-gold-light)}.custom-cursor.hidden{opacity:0}}@media(max-width:768px),(hover:none){.custom-cursor{display:none!important}}
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-tap-highlight-color: transparent;
-            overflow-x: hidden;
-            width: 100%;
-        }
+        .loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--royal-dark);display:flex;align-items:center;justify-content:center;z-index:999999;transition:opacity .8s ease,visibility .8s ease}
+        .loader-wrapper.hidden{opacity:0;visibility:hidden;pointer-events:none}
+        .loader-image-container{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 2rem;border:3px solid rgba(200,150,62,0.5);animation:loaderZoom 2s ease-in-out infinite;box-shadow:0 0 40px rgba(200,150,62,0.3)}
+        .loader-image-container img{width:100%;height:100%;object-fit:cover}
+        @keyframes loaderZoom{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+        .loader-logo{font-family:var(--font-elegant);font-size:2.5rem;font-weight:700;color:var(--royal-gold);letter-spacing:.15em}
+        .loader-subtitle{color:var(--ivory);font-size:.85rem;letter-spacing:.3em;margin-top:.3rem;opacity:.7}
+        .loader-bar{width:160px;height:2px;background:rgba(200,150,62,0.2);margin:1.2rem auto 0;border-radius:2px;overflow:hidden}
+        .loader-bar-fill{height:100%;background:var(--royal-gold);border-radius:2px;animation:loaderBar 1.8s ease-in-out infinite;width:0%}
+        @keyframes loaderBar{0%{width:0;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0;margin-left:100%}}
 
-        body {
-            font-family: var(--font-body);
-            background-color: var(--ivory-light);
-            color: var(--rich-black);
-            line-height: 1.7;
-            overflow-x: hidden;
-            cursor: default;
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
-            width: 100%;
-            position: relative;
-        }
+        .navbar{position:fixed;top:0;left:0;width:100%;z-index:10000;padding:1rem 2rem;transition:all .4s var(--transition-smooth);display:flex;align-items:center;justify-content:space-between;background:transparent}
+        .navbar.scrolled{background:rgba(26,15,46,0.92);backdrop-filter:blur(30px)saturate(180%);-webkit-backdrop-filter:blur(30px)saturate(180%);padding:.65rem 2rem;box-shadow:0 1px 0 rgba(255,255,255,0.08)inset,0 4px 30px rgba(0,0,0,0.4);border-bottom:1px solid rgba(200,150,62,0.1)}
+        .nav-logo{font-family:var(--font-elegant);font-size:1.6rem;font-weight:700;color:var(--white);letter-spacing:.08em;text-decoration:none;z-index:10001;position:relative}
+        .nav-logo span{color:var(--royal-gold)}
+        .nav-links{display:flex;list-style:none;gap:2rem;align-items:center}
+        .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:500;font-size:.9rem;letter-spacing:.04em;position:relative}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--royal-gold);transition:width .3s var(--transition-smooth)}
+        .nav-links a:hover::after,.nav-links a.active::after{width:100%}.nav-links a:hover,.nav-links a.active{color:var(--royal-gold)}
+        .nav-cta{background:var(--royal-gold)!important;color:var(--white)!important;padding:.6rem 1.5rem!important;border-radius:50px!important;font-weight:600!important;transition:all .3s var(--transition-smooth)!important}
+        .nav-cta:hover{background:var(--royal-gold-light)!important;transform:translateY(-2px);box-shadow:var(--shadow-gold)}.nav-cta::after{display:none!important}
+        .mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:10001;width:44px;height:44px;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;outline:none}
+        .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9998;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;pointer-events:none}
+        .nav-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
+        @media(max-width:1024px){.nav-links{position:fixed;top:0;right:0;width:320px;max-width:85vw;height:100vh;height:100dvh;background:rgba(26,15,46,0.98);backdrop-filter:blur(40px)saturate(180%);-webkit-backdrop-filter:blur(40px)saturate(180%);flex-direction:column;padding:6rem 2.5rem 2.5rem;gap:1.8rem;transform:translateX(100%);transition:transform .4s cubic-bezier(0.32,0.72,0,1);box-shadow:-10px 0 50px rgba(0,0,0,0.5);overflow-y:auto;z-index:9999;border-left:1px solid rgba(200,150,62,0.15)}.nav-links.active{transform:translateX(0)}.mobile-toggle{display:flex}.nav-links a{font-size:1.1rem;padding:.3rem 0;display:block}.nav-cta{text-align:center;display:block!important;margin-top:.8rem}}
+        @media(max-width:480px){.navbar{padding:.9rem 1rem}.navbar.scrolled{padding:.55rem 1rem}.nav-logo{font-size:1.3rem}.nav-links{width:100%;max-width:100vw;padding:6rem 2rem 2rem}}
 
-        /* Custom Cursor - Desktop Only */
-        @media (hover: hover) and (pointer: fine) {
-            .custom-cursor {
-                width: 20px;
-                height: 20px;
-                border: 2px solid var(--royal-gold);
-                border-radius: 50%;
-                position: fixed;
-                pointer-events: none;
-                z-index: 99999;
-                transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
-                transform: translate(-50%, -50%);
-                mix-blend-mode: difference;
-                display: block;
-            }
-            .custom-cursor.hover {
-                width: 50px;
-                height: 50px;
-                background: rgba(200,150,62,0.2);
-                border-color: var(--royal-gold-light);
-            }
-            .custom-cursor.hidden {
-                opacity: 0;
-            }
-        }
-        @media (max-width: 768px), (hover: none) {
-            .custom-cursor { display: none !important; }
-        }
+        .hero{position:relative;width:100%;min-height:100vh;min-height:100dvh;display:flex;align-items:center;background:var(--royal-dark);overflow:hidden}
+        .hero-slides{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+        .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s cubic-bezier(0.4,0,0.2,1),transform 1.2s cubic-bezier(0.4,0,0.2,1);transform:scale(1.08);will-change:opacity,transform;z-index:0}
+        .hero-slide.active{opacity:.55;transform:scale(1);z-index:1}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,15,46,0.75)0%,rgba(26,15,46,0.4)50%,rgba(13,107,74,0.25)100%);z-index:2;pointer-events:none}
+        .hero-particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none}
+        .hero-slide-indicators{position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:.6rem}
+        .hero-slide-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.35);cursor:pointer;transition:all .3s var(--transition-smooth);border:none;padding:0;outline:none;-webkit-tap-highlight-color:transparent}
+        .hero-slide-dot.active{background:var(--royal-gold);width:32px;border-radius:10px}
+        .hero-content{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:8rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;width:100%}
+        .hero-text{color:var(--white)}
+        .hero-badge{display:inline-block;background:rgba(200,150,62,0.15);border:1px solid rgba(200,150,62,0.4);color:var(--royal-gold);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.08em;margin-bottom:1.5rem;animation:fadeInUp .8s var(--transition-smooth)forwards}
+        .hero-name{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:.5rem;animation:fadeInUp .8s .1s var(--transition-smooth)forwards;opacity:0;animation-fill-mode:forwards}
+        .hero-name span{color:var(--royal-gold);display:block;font-size:clamp(1.2rem,2vw,1.5rem);font-weight:500;letter-spacing:.15em;margin-bottom:.3rem}
+        .hero-title{font-size:clamp(0.95rem,1.5vw,1.15rem);color:rgba(255,255,255,0.7);font-weight:400;line-height:1.6;margin-bottom:2rem;animation:fadeInUp .8s .2s var(--transition-smooth)forwards;opacity:0;animation-fill-mode:forwards}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeInUp .8s .3s var(--transition-smooth)forwards;opacity:0;animation-fill-mode:forwards}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;letter-spacing:.03em;transition:all .3s var(--transition-smooth);cursor:pointer;border:none;font-family:var(--font-body);-webkit-tap-highlight-color:transparent;touch-action:manipulation;white-space:nowrap}
+        .btn-primary{background:var(--royal-gold);color:var(--white);box-shadow:var(--shadow-gold)}
+        .btn-primary:hover{background:var(--royal-gold-light);transform:translateY(-3px);box-shadow:var(--shadow-gold-lg)}
+        .btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.3)}
+        .btn-outline:hover{border-color:var(--royal-gold);color:var(--royal-gold);transform:translateY(-3px)}
+        .hero-image-wrapper{position:relative;animation:fadeInUp .8s .4s var(--transition-smooth)forwards;opacity:0;animation-fill-mode:forwards;display:flex;flex-direction:column;align-items:center}
+        .hero-image-frame{width:100%;max-width:450px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:3px solid rgba(200,150,62,0.5);box-shadow:0 30px 60px rgba(0,0,0,0.4),0 0 0 15px rgba(200,150,62,0.08);margin:0 auto;position:relative;flex-shrink:0}
+        .hero-image-frame img{width:100%;height:100%;object-fit:cover;display:block}
+        .hero-image-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120%;height:120%;background:radial-gradient(circle,rgba(200,150,62,0.25)0%,transparent 70%);pointer-events:none;animation:glowPulse 3s ease-in-out infinite}
+        .hero-mobile-buttons{display:none;margin-top:1.5rem;flex-direction:column;gap:.8rem;width:100%;max-width:450px;animation:fadeInUp .8s .5s var(--transition-smooth)forwards;opacity:0;animation-fill-mode:forwards}
+        .hero-mobile-buttons .btn{width:100%;justify-content:center;text-align:center}
+        @keyframes glowPulse{0%,100%{opacity:.5;transform:translate(-50%,-50%)scale(1)}50%{opacity:.8;transform:translate(-50%,-50%)scale(1.08)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .scroll-indicator{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:.3rem;color:rgba(255,255,255,0.6);font-size:.7rem;letter-spacing:.1em;animation:bounceDown 2s ease-in-out infinite}
+        .scroll-indicator i{font-size:1.2rem}
+        @keyframes bounceDown{0%,100%{transform:translateX(-50%)translateY(0)}50%{transform:translateX(-50%)translateY(10px)}}
+        @media(max-width:768px){.hero-content{grid-template-columns:1fr;text-align:center;padding:7rem 1.5rem 3rem;gap:2rem}.hero-image-frame{max-width:240px;margin:0 auto;order:-1}.hero-buttons{display:none}.hero-mobile-buttons{display:flex}.hero-slide-indicators{bottom:4rem}}
+        @media(max-width:480px){.hero-content{padding:6rem 1rem 2.5rem;gap:1.5rem}.hero-image-frame{max-width:200px}.btn{padding:.7rem 1.5rem;font-size:.85rem}.hero-slide-indicators{bottom:3.5rem;gap:.4rem}.hero-slide-dot{width:8px;height:8px}.hero-slide-dot.active{width:24px}}
 
-        /* Loading Screen */
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--royal-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        .loader-wrapper.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .loader-content {
-            text-align: center;
-            position: relative;
-        }
-        .loader-image-container {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 2rem;
-            border: 3px solid rgba(200,150,62,0.5);
-            animation: loaderZoom 2s ease-in-out infinite;
-            box-shadow: 0 0 40px rgba(200,150,62,0.3);
-        }
-        .loader-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @keyframes loaderZoom {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(200,150,62,0.3); }
-            50% { transform: scale(1.15); box-shadow: 0 0 70px rgba(200,150,62,0.5); }
-        }
-        .loader-logo {
-            font-family: var(--font-elegant);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--royal-gold);
-            letter-spacing: 0.15em;
-        }
-        .loader-subtitle {
-            color: var(--ivory);
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
-            margin-top: 0.3rem;
-            opacity: 0.7;
-        }
-        .loader-bar {
-            width: 160px;
-            height: 2px;
-            background: rgba(200,150,62,0.2);
-            margin: 1.2rem auto 0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .loader-bar-fill {
-            height: 100%;
-            background: var(--royal-gold);
-            border-radius: 2px;
-            animation: loaderBar 1.8s ease-in-out infinite;
-            width: 0%;
-        }
-        @keyframes loaderBar {
-            0% { width: 0%; margin-left: 0; }
-            50% { width: 60%; margin-left: 20%; }
-            100% { width: 0%; margin-left: 100%; }
-        }
+        section{padding:5rem 2rem}
+        .section-header{text-align:center;margin-bottom:3.5rem}
+        .section-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.15em;color:var(--royal-gold);text-transform:uppercase;margin-bottom:.8rem}
+        .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--royal-dark);line-height:1.2;margin-bottom:1rem}
+        .section-line{width:60px;height:3px;background:var(--royal-gold);margin:0 auto;border-radius:3px}
+        @media(max-width:480px){section{padding:3.5rem 1rem}.section-header{margin-bottom:2.5rem}}
 
-        /* Navbar - Apple Style */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10000;
-            padding: 1rem 2rem;
-            transition: all 0.4s var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: transparent;
-        }
-        .navbar.scrolled {
-            background: rgba(26,15,46,0.92);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
-            padding: 0.65rem 2rem;
-            box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 30px rgba(0,0,0,0.4);
-            border-bottom: 1px solid rgba(200,150,62,0.1);
-        }
-        .nav-logo {
-            font-family: var(--font-elegant);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.08em;
-            text-decoration: none;
-            transition: color 0.3s;
-            z-index: 10001;
-            position: relative;
-        }
-        .nav-logo span {
-            color: var(--royal-gold);
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        .nav-links a {
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.04em;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--royal-gold);
-            transition: width 0.3s var(--transition-smooth);
-        }
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--royal-gold);
-        }
-        .nav-cta {
-            background: var(--royal-gold) !important;
-            color: var(--white) !important;
-            padding: 0.6rem 1.5rem !important;
-            border-radius: 50px !important;
-            font-weight: 600 !important;
-            transition: all 0.3s var(--transition-smooth) !important;
-        }
-        .nav-cta:hover {
-            background: var(--royal-gold-light) !important;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-            color: var(--white) !important;
-        }
-        .nav-cta::after {
-            display: none !important;
-        }
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 10001;
-            position: relative;
-            width: 44px;
-            height: 44px;
-            align-items: center;
-            justify-content: center;
-            -webkit-tap-highlight-color: transparent;
-            outline: none;
-        }
+        .quote-banner{background:var(--white);position:relative;overflow:hidden;padding:5rem 2rem;text-align:center;border-top:1px solid var(--ivory-dark);border-bottom:1px solid var(--ivory-dark)}
+        .quote-banner-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.06}
+        .quote-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+        .quote-mark{font-family:var(--font-display);font-size:5rem;color:var(--royal-gold);opacity:.4;line-height:.5}
+        .quote-text{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-style:italic;font-weight:700;color:var(--rich-black);line-height:1.4;margin:1rem 0}
+        .quote-author{color:var(--royal-gold-dark);font-weight:600;letter-spacing:.05em;font-size:1rem}
 
-        /* Mobile Navigation Overlay */
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 9998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            pointer-events: none;
-        }
-        .nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
+        .about-preview{background:var(--white)}
+        .about-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .about-image-wrapper{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-xl)}
+        .about-image-wrapper img{width:100%;height:auto;display:block}
+        .about-text h3{font-family:var(--font-display);font-size:1.8rem;color:var(--royal-dark);margin-bottom:1rem}
+        .about-text p{color:var(--gray-600);margin-bottom:1rem;line-height:1.8;font-size:.95rem}
+        @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2rem}}
 
-        @media (max-width: 1024px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 320px;
-                max-width: 85vw;
-                height: 100vh;
-                height: 100dvh;
-                background: rgba(26,15,46,0.98);
-                backdrop-filter: blur(40px) saturate(180%);
-                -webkit-backdrop-filter: blur(40px) saturate(180%);
-                flex-direction: column;
-                padding: 6rem 2.5rem 2.5rem;
-                gap: 1.8rem;
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-                box-shadow: -10px 0 50px rgba(0,0,0,0.5);
-                overflow-y: auto;
-                z-index: 9999;
-                border-left: 1px solid rgba(200,150,62,0.15);
-            }
-            .nav-links.active {
-                transform: translateX(0);
-            }
-            .mobile-toggle {
-                display: flex;
-            }
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 0.3rem 0;
-                display: block;
-            }
-            .nav-cta {
-                text-align: center;
-                display: block !important;
-                margin-top: 0.8rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 0.9rem 1rem;
-            }
-            .navbar.scrolled {
-                padding: 0.55rem 1rem;
-            }
-            .nav-logo {
-                font-size: 1.3rem;
-            }
-            .nav-links {
-                width: 100%;
-                max-width: 100vw;
-                padding: 6rem 2rem 2rem;
-            }
-        }
+        .ministry-section{background:var(--ivory)}
+        .cards-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
+        .ministry-card{background:var(--white);border-radius:20px;padding:2.5rem 2rem;text-align:center;box-shadow:var(--shadow-md);transition:all .4s var(--transition-smooth);border:1px solid transparent;position:relative;overflow:hidden;cursor:default}
+        .ministry-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--royal-gold);transform:scaleX(0);transition:transform .4s var(--transition-smooth)}
+        .ministry-card:hover::before{transform:scaleX(1)}
+        .ministry-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:rgba(200,150,62,0.2)}
+        .ministry-card-icon{width:70px;height:70px;background:var(--soft-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.8rem;color:var(--royal-gold-dark);transition:all .3s}
+        .ministry-card:hover .ministry-card-icon{background:var(--royal-gold);color:var(--white);transform:scale(1.1)}
+        .ministry-card h4{font-family:var(--font-display);font-size:1.3rem;color:var(--royal-dark);margin-bottom:.8rem}
+        .ministry-card p{color:var(--gray-600);font-size:.9rem;line-height:1.7}
+        .ministry-card .card-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;color:var(--royal-gold);font-weight:600;font-size:.85rem;text-decoration:none;transition:color .3s}
+        .ministry-card .card-link:hover{color:var(--royal-gold-dark)}
+        .ministry-card .card-link i{font-size:.8rem}
+        @media(max-width:480px){.cards-grid{grid-template-columns:1fr}.ministry-card{padding:2rem 1.5rem}}
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            align-items: center;
-            background: var(--royal-dark);
-            overflow: hidden;
-        }
-        .hero-slides {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.08);
-            will-change: opacity, transform;
-            z-index: 0;
-        }
-        .hero-slide.active {
-            opacity: 0.55;
-            transform: scale(1);
-            z-index: 1;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26,15,46,0.75) 0%, rgba(26,15,46,0.4) 50%, rgba(13,107,74,0.25) 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
-        .hero-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .hero-slide-indicators {
-            position: absolute;
-            bottom: 5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-            display: flex;
-            gap: 0.6rem;
-        }
-        .hero-slide-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.35);
-            cursor: pointer;
-            transition: all 0.3s var(--transition-smooth);
-            border: none;
-            padding: 0;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .hero-slide-dot.active {
-            background: var(--royal-gold);
-            width: 32px;
-            border-radius: 10px;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 4;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 8rem 2rem 4rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            width: 100%;
-        }
-        .hero-text {
-            color: var(--white);
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(200,150,62,0.15);
-            border: 1px solid rgba(200,150,62,0.4);
-            color: var(--royal-gold);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s var(--transition-smooth) forwards;
-        }
-        .hero-name {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s 0.1s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .hero-name span {
-            color: var(--royal-gold);
-            display: block;
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.3rem;
-        }
-        .hero-title {
-            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-            color: rgba(255,255,255,0.7);
-            font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s 0.2s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s 0.3s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            letter-spacing: 0.03em;
-            transition: all 0.3s var(--transition-smooth);
-            cursor: pointer;
-            border: none;
-            font-family: var(--font-body);
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            white-space: nowrap;
-        }
-        .btn-primary {
-            background: var(--royal-gold);
-            color: var(--white);
-            box-shadow: var(--shadow-gold);
-        }
-        .btn-primary:hover {
-            background: var(--royal-gold-light);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-gold-lg);
-        }
-        .btn-primary:active {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-gold);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .btn-outline:hover {
-            border-color: var(--royal-gold);
-            color: var(--royal-gold);
-            transform: translateY(-3px);
-        }
-        .hero-image-wrapper {
-            position: relative;
-            animation: fadeInUp 0.8s 0.4s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero-image-frame {
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 3/4;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 3px solid rgba(200,150,62,0.5);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 15px rgba(200,150,62,0.08);
-            margin: 0 auto;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .hero-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .hero-image-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(200,150,62,0.25) 0%, transparent 70%);
-            pointer-events: none;
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-        .hero-mobile-buttons {
-            display: none;
-            margin-top: 1.5rem;
-            flex-direction: column;
-            gap: 0.8rem;
-            width: 100%;
-            max-width: 450px;
-            animation: fadeInUp 0.8s 0.5s var(--transition-smooth) forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .hero-mobile-buttons .btn {
-            width: 100%;
-            justify-content: center;
-            text-align: center;
-        }
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .scroll-indicator {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            animation: bounceDown 2s ease-in-out infinite;
-        }
-        .scroll-indicator i {
-            font-size: 1.2rem;
-        }
-        @keyframes bounceDown {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
-        }
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 7rem 1.5rem 3rem;
-                gap: 2rem;
-            }
-            .hero-image-frame {
-                max-width: 240px;
-                margin: 0 auto;
-                order: -1;
-            }
-            .hero-buttons {
-                display: none;
-            }
-            .hero-mobile-buttons {
-                display: flex;
-            }
-            .hero-slide-indicators {
-                bottom: 4rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero-content {
-                padding: 6rem 1rem 2.5rem;
-                gap: 1.5rem;
-            }
-            .hero-image-frame {
-                max-width: 200px;
-            }
-            .btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.85rem;
-            }
-            .hero-slide-indicators {
-                bottom: 3.5rem;
-                gap: 0.4rem;
-            }
-            .hero-slide-dot {
-                width: 8px;
-                height: 8px;
-            }
-            .hero-slide-dot.active {
-                width: 24px;
-            }
-        }
+        .book-section{background:var(--white)}
+        .book-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
+        .book-cover{perspective:1000px}
+        .book-cover-inner{position:relative;border-radius:12px;overflow:hidden;box-shadow:20px 20px 50px rgba(0,0,0,0.25);transition:transform .5s var(--transition-smooth);transform:rotateY(-5deg)rotateX(3deg)}
+        .book-cover-inner:hover{transform:rotateY(0deg)rotateX(0deg)scale(1.03)}
+        .book-cover-inner img{width:100%;display:block}
+        .book-details h3{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,2rem);color:var(--royal-dark);margin-bottom:.5rem}
+        .book-details .book-subtitle{color:var(--royal-gold);font-weight:600;letter-spacing:.05em;margin-bottom:1.5rem}
+        .book-details p{color:var(--gray-600);margin-bottom:1.5rem;line-height:1.8;font-size:.95rem}
+        @media(max-width:768px){.book-grid{grid-template-columns:1fr;gap:2rem;text-align:center}.book-cover-inner{max-width:260px;margin:0 auto}.book-details .btn{margin:0 auto}}
 
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-        .section-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            color: var(--royal-gold);
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            color: var(--royal-dark);
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        .section-line {
-            width: 60px;
-            height: 3px;
-            background: var(--royal-gold);
-            margin: 0 auto;
-            border-radius: 3px;
-        }
-        @media (max-width: 480px) {
-            section {
-                padding: 3.5rem 1rem;
-            }
-            .section-header {
-                margin-bottom: 2.5rem;
-            }
-        }
+        .cta-section{background:linear-gradient(135deg,var(--royal-dark)0%,var(--royal-purple)100%);text-align:center;position:relative;overflow:hidden}
+        .cta-section::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(200,150,62,0.1)0%,transparent 60%);animation:ctaGlow 8s linear infinite}
+        @keyframes ctaGlow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        .cta-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
+        .cta-content h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--white);margin-bottom:1rem}
+        .cta-content p{color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1.05rem}
 
-        /* Quote Banner - BOLD BLACK TEXT */
-        .quote-banner {
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
-            padding: 5rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--ivory-dark);
-            border-bottom: 1px solid var(--ivory-dark);
-        }
-        .quote-banner-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.06;
-        }
-        .quote-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .quote-mark {
-            font-family: var(--font-display);
-            font-size: 5rem;
-            color: var(--royal-gold);
-            opacity: 0.4;
-            line-height: 0.5;
-        }
-        .quote-text {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-style: italic;
-            font-weight: 700;
-            color: var(--rich-black);
-            line-height: 1.4;
-            margin: 1rem 0;
-        }
-        .quote-author {
-            color: var(--royal-gold-dark);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            font-size: 1rem;
-        }
-
-        /* About Preview */
-        .about-preview {
-            background: var(--white);
-        }
-        .about-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .about-text h3 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--royal-dark);
-            margin-bottom: 1rem;
-        }
-        .about-text p {
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* Ministry Cards */
-        .ministry-section {
-            background: var(--ivory);
-        }
-        .cards-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-        }
-        .ministry-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s var(--transition-smooth);
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            cursor: default;
-        }
-        .ministry-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--royal-gold);
-            transform: scaleX(0);
-            transition: transform 0.4s var(--transition-smooth);
-        }
-        .ministry-card:hover::before {
-            transform: scaleX(1);
-        }
-        .ministry-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(200,150,62,0.2);
-        }
-        .ministry-card-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--soft-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            color: var(--royal-gold-dark);
-            transition: all 0.3s;
-        }
-        .ministry-card:hover .ministry-card-icon {
-            background: var(--royal-gold);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-        .ministry-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--royal-dark);
-            margin-bottom: 0.8rem;
-        }
-        .ministry-card p {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            .ministry-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* Book Section */
-        .book-section {
-            background: var(--white);
-        }
-        .book-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .book-cover {
-            perspective: 1000px;
-        }
-        .book-cover-inner {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 20px 20px 50px rgba(0,0,0,0.25);
-            transition: transform 0.5s var(--transition-smooth);
-            transform: rotateY(-5deg) rotateX(3deg);
-        }
-        .book-cover-inner:hover {
-            transform: rotateY(0deg) rotateX(0deg) scale(1.03);
-        }
-        .book-cover-inner img {
-            width: 100%;
-            display: block;
-        }
-        .book-details h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            color: var(--royal-dark);
-            margin-bottom: 0.5rem;
-        }
-        .book-details .book-subtitle {
-            color: var(--royal-gold);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-        }
-        .book-details p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        @media (max-width: 768px) {
-            .book-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            .book-cover-inner {
-                max-width: 260px;
-                margin: 0 auto;
-            }
-            .book-details .btn {
-                margin: 0 auto;
-            }
-        }
-
-        /* PhD Research Section */
-        .research-section {
-            background: var(--white);
-        }
-        .research-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--ivory);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--ivory-dark);
-        }
-        .research-icon {
-            font-size: 3rem;
-            color: var(--royal-gold);
-            margin-bottom: 1rem;
-        }
-        .research-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            color: var(--royal-dark);
-            margin-bottom: 1rem;
-        }
-        .research-card .research-focus {
-            display: inline-block;
-            background: rgba(200,150,62,0.1);
-            border: 1px solid rgba(200,150,62,0.3);
-            color: var(--royal-gold-dark);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-        .research-card p {
-            color: var(--gray-600);
-            font-size: 1rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        @media (max-width: 480px) {
-            .research-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--royal-dark) 0%, var(--royal-purple) 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(200,150,62,0.1) 0%, transparent 60%);
-            animation: ctaGlow 8s linear infinite;
-        }
-        @keyframes ctaGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .cta-content h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .cta-content p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--royal-dark);
-            color: rgba(255,255,255,0.6);
-            padding: 4rem 2rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(200,150,62,0.15);
-        }
-        .footer-logo {
-            font-family: var(--font-elegant);
-            font-size: 1.8rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .footer-logo span {
-            color: var(--royal-gold);
-        }
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-        .footer-social a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            text-decoration: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .footer-social a:hover {
-            background: var(--royal-gold);
-            transform: translateY(-3px);
-        }
-        .footer-tagline {
-            font-style: italic;
-            color: var(--royal-gold);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.85rem;
-        }
-        @media (max-width: 480px) {
-            footer {
-                padding: 3rem 1rem 1.5rem;
-            }
-        }
-
-        /* Lazy load fade */
-        img.lazy {
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        img.lazy.loaded {
-            opacity: 1;
-        }
+        footer{background:var(--royal-dark);color:rgba(255,255,255,0.6);padding:4rem 2rem 2rem;text-align:center;border-top:1px solid rgba(200,150,62,0.15)}
+        .footer-logo{font-family:var(--font-elegant);font-size:1.8rem;color:var(--white);margin-bottom:1rem}.footer-logo span{color:var(--royal-gold)}
+        .footer-social{display:flex;justify-content:center;gap:1.2rem;margin:1.5rem 0;flex-wrap:wrap}
+        .footer-social a{width:45px;height:45px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:all .3s;text-decoration:none;-webkit-tap-highlight-color:transparent}
+        .footer-social a:hover{background:var(--royal-gold);transform:translateY(-3px)}
+        .footer-tagline{font-style:italic;color:var(--royal-gold);margin-bottom:1rem;font-size:1.1rem}
+        .footer-bottom{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);font-size:.85rem}
+        @media(max-width:480px){footer{padding:3rem 1rem 1.5rem}}
+        img.lazy{opacity:0;transition:opacity .6s ease}img.lazy.loaded{opacity:1}
     </style>
 </head>
 <body>
-    <!-- Custom Cursor (Desktop only) -->
     <div class="custom-cursor" id="customCursor"></div>
 
-    <!-- Loading Screen -->
     <div class="loader-wrapper" id="loader">
         <div class="loader-content">
-            <div class="loader-image-container">
-                <img 
-                    src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" 
-                    alt="Pastor Yomi Okewunmi"
-                >
-            </div>
+            <div class="loader-image-container"><img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="Pastor Yomi Okewunmi"></div>
             <div class="loader-logo">PY</div>
             <div class="loader-subtitle">PASTOR YOMI OKEWUNMI</div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
         </div>
     </div>
 
-    <!-- Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="nav-logo">PY<span>.</span></a>
         <ul class="nav-links" id="navLinks">
@@ -1237,14 +290,10 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="invite.html" class="nav-cta">Book PY</a></li>
         </ul>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <!-- Hero Section with 4-Image Slideshow -->
     <section class="hero" id="home">
-        <!-- Background Slideshow - 4 Different Images ALL LOADED -->
         <div class="hero-slides" id="heroSlides">
             <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704502612_uspcmw.jpg" alt="Pastor Yomi Okewunmi" class="hero-slide active" data-index="0">
             <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="Pastor Yomi ministering" class="hero-slide" data-index="1">
@@ -1253,77 +302,45 @@
         </div>
         <div class="hero-overlay"></div>
         <canvas class="hero-particles" id="particleCanvas"></canvas>
-        
-        <!-- Slide Indicators -->
         <div class="hero-slide-indicators" id="slideIndicators">
             <button class="hero-slide-dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="hero-slide-dot" data-index="1" aria-label="Slide 2"></button>
             <button class="hero-slide-dot" data-index="2" aria-label="Slide 3"></button>
             <button class="hero-slide-dot" data-index="3" aria-label="Slide 4"></button>
         </div>
-
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">MINISTER • SCHOLAR • AUTHOR • LEADER • PhD RESEARCHER</div>
-                <h1 class="hero-name">
-                    <span>Pastor Yomi</span>
-                    Okewunmi
-                </h1>
-                <p class="hero-title">
-                    Resident Pastor, SPAC Headquarters, Ibadan. Convener of Arise Conference & Eagles Convergence, Give Us This Month. Lead Tutor at EduTop Scholar. Founder of Afrowecanism. Author of "Even Nothing Is Something". First Class Graduate, Distinction in Master's, and PhD in view. Researcher in Ethics, Migration & African Development. Mentor and Visionary Leader.
-                </p>
+                <h1 class="hero-name"><span>Pastor Yomi</span>Okewunmi</h1>
+                <p class="hero-title">Resident Pastor, SPAC Headquarters, Ibadan. Convener of Arise Conference & Eagles Convergence, Give Us This Month. Lead Tutor at EduTop Scholar. Founder of Afrowecanism. Author of "Even Nothing Is Something". First Class Graduate, Distinction in Master's, and PhD in view. Researcher in Ethics, Migration & African Development. Mentor and Visionary Leader.</p>
                 <div class="hero-buttons">
-                    <a href="invite.html" class="btn btn-primary">
-                        <i class="fas fa-calendar-check"></i> Invite PY to Speak
-                    </a>
-                    <a href="about.html" class="btn btn-outline">
-                        <i class="fas fa-user"></i> Discover More
-                    </a>
+                    <a href="invite.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Invite PY to Speak</a>
+                    <a href="about.html" class="btn btn-outline"><i class="fas fa-user"></i> Discover More</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
                 <div class="hero-image-frame">
-                    <img 
-                        src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg" 
-                        alt="Pastor Yomi Okewunmi Portrait"
-                    >
+                    <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704561923_vjheua.jpg" alt="Pastor Yomi Okewunmi Portrait">
                     <div class="hero-image-glow"></div>
                 </div>
-                <!-- Mobile buttons under floating image -->
                 <div class="hero-mobile-buttons">
-                    <a href="invite.html" class="btn btn-primary">
-                        <i class="fas fa-calendar-check"></i> Invite PY to Speak
-                    </a>
-                    <a href="about.html" class="btn btn-outline">
-                        <i class="fas fa-user"></i> Discover More
-                    </a>
+                    <a href="invite.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Invite PY to Speak</a>
+                    <a href="about.html" class="btn btn-outline"><i class="fas fa-user"></i> Discover More</a>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>SCROLL</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
+        <div class="scroll-indicator"><span>SCROLL</span><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- Quote Banner - BOLD BLACK TEXT -->
     <section class="quote-banner">
-        <img 
-            data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" 
-            alt="" 
-            class="quote-banner-bg lazy"
-        >
+        <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705802/1778704614935_hiktwa.jpg" alt="" class="quote-banner-bg lazy">
         <div class="quote-content" data-aos="fade-up">
             <div class="quote-mark">"</div>
-            <p class="quote-text">
-                Even Nothing Is Something — possibilities not only reside with God, 
-                but are also extended to man through Christ.
-            </p>
+            <p class="quote-text">Even Nothing Is Something — possibilities not only reside with God, but are also extended to man through Christ.</p>
             <p class="quote-author">— Pastor Yomi Okewunmi</p>
         </div>
     </section>
 
-    <!-- About Preview -->
     <section class="about-preview" id="about-preview">
         <div class="section-header" data-aos="fade-up">
             <span class="section-tag">About</span>
@@ -1332,32 +349,14 @@
         </div>
         <div class="about-grid">
             <div class="about-image-wrapper" data-aos="fade-right">
-                <img 
-                    data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" 
-                    alt="Pastor Yomi Okewunmi ministering" 
-                    class="lazy"
-                >
+                <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/1778704587430_cgztva.jpg" alt="Pastor Yomi Okewunmi ministering" class="lazy">
             </div>
             <div class="about-text" data-aos="fade-left">
                 <h3>Pastor. Scholar. Visionary.</h3>
-                <p>
-                    Pastor Yomi Okewunmi, fondly known as PY, is a dynamic minister, scholar, mentor, 
-                    and author from Abeokuta, Ogun State, now based in Ibadan. He serves as Resident Pastor of 
-                    <strong>SPAC Headquarters, Ibadan</strong>, where his teachings are known for their 
-                    depth, clarity, and practical relevance.
-                </p>
-                <p>
-                    With a First Class Honours degree in Philosophy from the <strong>University of Ibadan</strong>, 
-                    a Distinction in his Master's, and a National Diploma in Insurance with Distinction from 
-                    The Polytechnic Ibadan, PY embodies the spirit of excellence.
-                </p>
-                <p>
-                    He is the visionary founder of <strong>Arise Conference & Eagles Convergence</strong>, <strong>Afrowecanism</strong>, 
-                    <strong>Edutop Scholar</strong>, and <strong>Give Us This Month</strong> — movements that have empowered thousands across Nigeria and beyond.
-                </p>
-                <a href="about.html" class="btn btn-primary" style="margin-top:0.5rem;">
-                    Read Full Biography <i class="fas fa-arrow-right"></i>
-                </a>
+                <p>Pastor Yomi Okewunmi, fondly known as PY, is a dynamic minister, scholar, mentor, and author from Abeokuta, Ogun State, now based in Ibadan. He serves as Resident Pastor of <strong>SPAC Headquarters, Ibadan</strong>, where his teachings are known for their depth, clarity, and practical relevance.</p>
+                <p>With a First Class Honours degree in Philosophy from the <strong>University of Ibadan</strong>, a Distinction in his Master's, and a National Diploma in Insurance with Distinction from The Polytechnic Ibadan, PY embodies the spirit of excellence.</p>
+                <p>He is the visionary founder of <strong>Arise Conference & Eagles Convergence</strong>, <strong>Afrowecanism</strong>, <strong>Edutop Scholar</strong>, and <strong>Give Us This Month</strong> — movements that have empowered thousands across Nigeria and beyond.</p>
+                <a href="about.html" class="btn btn-primary" style="margin-top:0.5rem;">Read Full Biography <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1370,73 +369,38 @@
             <div class="section-line"></div>
         </div>
         <div class="cards-grid">
+            <!-- SPAC Church -->
             <div class="ministry-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="ministry-card-icon">
-                    <i class="fas fa-church"></i>
-                </div>
+                <div class="ministry-card-icon"><i class="fas fa-church"></i></div>
                 <h4>SPAC Headquarters, Ibadan</h4>
-                <p>
-                    Resident Pastor advancing God's Kingdom through the ministry of the Word and 
-                    demonstration of power. Raising people who walk in purpose, excellence, and 
-                    spiritual maturity.
-                </p>
+                <p>Resident Pastor advancing God's Kingdom through the ministry of the Word and demonstration of power. Raising people who walk in purpose, excellence, and spiritual maturity.</p>
             </div>
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="ministry-card-icon">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <h4>Arise Conference</h4>
-                <p>
-                    Monthly youth gatherings now in their fourth year — prophetic meeting points 
-                    for young people discovering their path in God, purpose in life, and place 
-                    in destiny. Equipping a generation for career, entrepreneurship, and leadership.
-                    Give Us This Month. A last day cross over program into every new month. A program to commit the coming month into God’s hands
-                </p>
+            <!-- Arise Conference -->
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="ministry-card-icon"><i class="fas fa-fire"></i></div>
+                <h4>Arise Conference & Eagles Convergence</h4>
+                <p>Monthly youth gatherings now in their fourth year — prophetic meeting points for young people discovering their path in God, purpose in life, and place in destiny. This is to ensure that they take responsibility for Self, Family, and Generation.</p>
+                <a href="https://ariseconference.com.ng" target="_blank" rel="noopener" class="card-link">Visit Arise Conference Website <i class="fas fa-arrow-right"></i></a>
             </div>
+            <!-- Give Us This Month -->
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="ministry-card-icon"><i class="fas fa-calendar-check"></i></div>
+                <h4>Give Us This Month</h4>
+                <p>A last-day crossover program into every new month. A program to commit the coming month into God's hands. There are testimonies of good news and full evidence of the Holy Spirit. Held live on our Facebook page.</p>
+                <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" class="card-link">Follow Pastor Yomi for Notifications <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <!-- Afrowecanism -->
             <div class="ministry-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="ministry-card-icon">
-                    <i class="fas fa-globe-africa"></i>
-                </div>
+                <div class="ministry-card-icon"><i class="fas fa-globe-africa"></i></div>
                 <h4>Afrowecanism</h4>
-                <p>
-                    An African ideology built on the powerful belief: <em>"As Africans, We Can."</em> 
-                    Inspiring young people to embrace their African identity as a blessing, 
-                    promoting confidence, excellence, and global impact.
-                </p>
+                <p>An African ideology built on the powerful belief: <em>"As Africans, We Can."</em> Inspiring young people to embrace their African identity as a blessing, promoting confidence, excellence, and global impact.</p>
             </div>
-            <div class="ministry-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="ministry-card-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
+            <!-- Edutop Scholar -->
+            <div class="ministry-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="ministry-card-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h4>EduTop Scholar</h4>
-                <p>
-                    Educational initiatives helping students achieve academic excellence and unlock 
-                    their highest potential. Many students have been mentored, guided, and empowered 
-                    to succeed academically.
-                </p>
+                <p>Educational initiative helping students achieve academic excellence and unlock their highest potential. Many students have been mentored, guided, and empowered to succeed academically.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- PhD Research Section -->
-    <section class="research-section" id="research">
-        <div class="section-header" data-aos="fade-up">
-            <span class="section-tag">Doctor of Philosophy</span>
-            <h2 class="section-title">Current Research Pursuit</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="research-card" data-aos="fade-up">
-            <div class="research-icon">
-                <i class="fas fa-microscope"></i>
-            </div>
-            <h3>PhD Researcher — University of Ibadan</h3>
-            <div class="research-focus">Ethics • Migration • African Development</div>
-            <p>
-                He is currently pursuing a Doctor of Philosophy (PhD) degree at the University of Ibadan, 
-                with a research focus on <strong>Ethics, Migration, and African Development</strong>. 
-                His research pursuit is driven by a passion for the moral and socio-cultural transformation 
-                and development of Africa through the cultivation of sound ethical values among the younger generation.
-            </p>
         </div>
     </section>
 
@@ -1450,421 +414,100 @@
         <div class="book-grid">
             <div class="book-cover" data-aos="fade-right">
                 <div class="book-cover-inner">
-                    <img 
-                        data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/images_76_yevymi.jpg" 
-                        alt="Even Nothing Is Something book cover" 
-                        class="lazy"
-                    >
+                    <img data-src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778705803/images_76_yevymi.jpg" alt="Even Nothing Is Something book cover" class="lazy">
                 </div>
             </div>
             <div class="book-details" data-aos="fade-left">
                 <h3>Even Nothing Is Something</h3>
                 <p class="book-subtitle">By Pastor Yomi Okewunmi</p>
-                <p>
-                    This transformational work draws from both philosophical and theological perspectives 
-                    to challenge fear, impossibility, limitation, and disadvantage. It reminds readers 
-                    that possibilities not only reside with God, but are also extended to man through Christ.
-                </p>
-                <p>
-                    A powerful inspirational tool for anyone who feels they started life behind the line — 
-                    discover the something that exists even in your nothing.
-                </p>
-                <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener" class="btn btn-primary">
-                    <i class="fas fa-shopping-cart"></i> Get Your Copy on Selar
-                </a>
+                <p>This transformational work draws from both philosophical and theological perspectives to challenge fear, impossibility, limitation, and disadvantage. It reminds readers that possibilities not only reside with God, but are also extended to man through Christ.</p>
+                <p>A powerful inspirational tool for anyone who feels they started life behind the line — discover the something that exists even in your nothing.</p>
+                <a href="https://selar.com/showlove/yomiokewunmienis" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Get Your Copy on Selar</a>
             </div>
         </div>
     </section>
 
-    <!-- CTA / Invite Section -->
     <section class="cta-section" id="invite-cta">
         <div class="cta-content" data-aos="fade-up">
             <h2>Invite Pastor Yomi to Your Next Event</h2>
-            <p>
-                Whether it's a conference, youth program, leadership summit, or church service — 
-                bring a transformative voice that equips, empowers, and elevates lives into the 
-                fullness of God's plan.
-            </p>
-            <a href="invite.html" class="btn btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">
-                <i class="fas fa-calendar-check"></i> Book PY Now
-            </a>
+            <p>Whether it's a conference, youth program, leadership summit, or church service — bring a transformative voice that equips, empowers, and elevates lives into the fullness of God's plan.</p>
+            <a href="invite.html" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;"><i class="fas fa-calendar-check"></i> Book PY Now</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-logo">PY<span>.</span></div>
         <p class="footer-tagline">"As Africans, We Can."</p>
         <div class="footer-social">
-            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store">
-                <i class="fas fa-store"></i>
-            </a>
+            <a href="https://www.facebook.com/yomi.okewunmi" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/yomi_okewunmi?igsh=NXhlYzE1ZG93NHBp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://selar.com/m/yomi-okewunmi1" target="_blank" rel="noopener" aria-label="Selar Store"><i class="fas fa-store"></i></a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Pastor Yomi Okewunmi. All rights reserved. Built by Triangle Tech.</p></div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script>
-        // ============ LOADING SCREEN ============
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1800);
-        });
+        window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hidden')},1800)});
+        AOS.init({duration:800,easing:'ease-out-cubic',once:true,offset:60});
 
-        // ============ AOS INIT ============
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 60,
-            disable: false,
-        });
-
-        // ============ CUSTOM CURSOR (Desktop only) ============
-        const cursor = document.getElementById('customCursor');
-        if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-            document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
-            document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
-            
-            const hoverables = document.querySelectorAll('a, button, .btn, .ministry-card, .book-cover-inner, .hero-slide-dot');
-            hoverables.forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            });
+        const cursor=document.getElementById('customCursor');
+        if(cursor&&window.matchMedia('(hover:hover)and(pointer:fine)').matches){
+            document.addEventListener('mousemove',(e)=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+            document.addEventListener('mouseleave',()=>cursor.classList.add('hidden'));
+            document.addEventListener('mouseenter',()=>cursor.classList.remove('hidden'));
+            document.querySelectorAll('a,button,.btn,.ministry-card,.book-cover-inner,.hero-slide-dot').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'))});
         }
 
-        // ============ HERO SLIDESHOW - 4 IMAGES AUTO-SLIDING ============
-        const slides = document.querySelectorAll('.hero-slide');
-        const dots = document.querySelectorAll('.hero-slide-dot');
-        let currentSlide = 0;
-        let slideInterval;
-        const slideDuration = 4000;
-        let isTransitioning = false;
+        const slides=document.querySelectorAll('.hero-slide');
+        const dots=document.querySelectorAll('.hero-slide-dot');
+        let currentSlide=0,slideInterval,isTransitioning=false;
+        const slideDuration=4000;
 
-        function goToSlide(index) {
-            if (isTransitioning) return;
-            if (index === currentSlide) return;
-            if (index < 0 || index >= slides.length) return;
-            
-            isTransitioning = true;
-            
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-            
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 1200);
+        function goToSlide(index){
+            if(isTransitioning||index===currentSlide||index<0||index>=slides.length)return;
+            isTransitioning=true;
+            slides.forEach(s=>s.classList.remove('active'));
+            dots.forEach(d=>d.classList.remove('active'));
+            slides[index].classList.add('active');dots[index].classList.add('active');currentSlide=index;
+            setTimeout(()=>{isTransitioning=false},1200);
         }
+        function nextSlide(){goToSlide((currentSlide+1)%slides.length)}
+        function prevSlide(){goToSlide((currentSlide-1+slides.length)%slides.length)}
+        slideInterval=setInterval(nextSlide,slideDuration);
+        dots.forEach(dot=>{dot.addEventListener('click',()=>{const i=parseInt(dot.dataset.index);if(i===currentSlide)return;goToSlide(i);clearInterval(slideInterval);slideInterval=setInterval(nextSlide,slideDuration)})});
+        const heroSection=document.querySelector('.hero');
+        if(heroSection){heroSection.addEventListener('mouseenter',()=>clearInterval(slideInterval));heroSection.addEventListener('mouseleave',()=>{clearInterval(slideInterval);slideInterval=setInterval(nextSlide,slideDuration)})}
+        let touchStartX=0,touchEndX=0;
+        if(heroSection){heroSection.addEventListener('touchstart',(e)=>{touchStartX=e.changedTouches[0].screenX},{passive:true});heroSection.addEventListener('touchend',(e)=>{touchEndX=e.changedTouches[0].screenX;const diff=touchStartX-touchEndX;if(Math.abs(diff)>50){clearInterval(slideInterval);diff>0?nextSlide():prevSlide();slideInterval=setInterval(nextSlide,slideDuration)}})}
+        document.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight'){clearInterval(slideInterval);nextSlide();slideInterval=setInterval(nextSlide,slideDuration)}else if(e.key==='ArrowLeft'){clearInterval(slideInterval);prevSlide();slideInterval=setInterval(nextSlide,slideDuration)}});
 
-        function nextSlide() {
-            const next = (currentSlide + 1) % slides.length;
-            goToSlide(next);
-        }
+        const navbar=document.getElementById('navbar');
+        window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
 
-        function prevSlide() {
-            const prev = (currentSlide - 1 + slides.length) % slides.length;
-            goToSlide(prev);
-        }
+        const mobileToggle=document.getElementById('mobileToggle'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+        function openNav(){navLinks.classList.add('active');if(navOverlay)navOverlay.classList.add('active');const icon=mobileToggle.querySelector('i');if(icon){icon.classList.remove('fa-bars');icon.classList.add('fa-times')}document.body.style.overflow='hidden';document.body.style.position='fixed';document.body.style.width='100%';document.body.style.top=`-${window.scrollY}px`}
+        function closeNav(){navLinks.classList.remove('active');if(navOverlay)navOverlay.classList.remove('active');const icon=mobileToggle.querySelector('i');if(icon){icon.classList.remove('fa-times');icon.classList.add('fa-bars')}const scrollY=document.body.style.top;document.body.style.overflow='';document.body.style.position='';document.body.style.width='';document.body.style.top='';if(scrollY){window.scrollTo(0,parseInt(scrollY||'0')*-1)}}
+        mobileToggle.addEventListener('click',(e)=>{e.stopPropagation();navLinks.classList.contains('active')?closeNav():openNav()});
+        if(navOverlay)navOverlay.addEventListener('click',closeNav);
+        document.querySelectorAll('.nav-links a').forEach(link=>{link.addEventListener('click',()=>{closeNav()})});
+        document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&navLinks.classList.contains('active'))closeNav()});
 
-        slideInterval = setInterval(nextSlide, slideDuration);
+        const canvas=document.getElementById('particleCanvas');
+        if(canvas){const ctx=canvas.getContext('2d');let particles=[],animationId,mouseX=-1000,mouseY=-1000;
+        function resizeCanvas(){const parent=canvas.parentElement;canvas.width=parent.offsetWidth;canvas.height=parent.offsetHeight}resizeCanvas();
+        let resizeDebounce;window.addEventListener('resize',()=>{clearTimeout(resizeDebounce);resizeDebounce=setTimeout(()=>{resizeCanvas();initParticles()},200)});
+        const heroEl=canvas.parentElement;heroEl.addEventListener('mousemove',(e)=>{const rect=canvas.getBoundingClientRect();mouseX=e.clientX-rect.left;mouseY=e.clientY-rect.top});heroEl.addEventListener('mouseleave',()=>{mouseX=-1000;mouseY=-1000});
+        function initParticles(){particles=[];const area=canvas.width*canvas.height;const count=Math.min(80,Math.max(30,Math.floor(area/15000)));for(let i=0;i<count;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,radius:Math.random()*2+0.5,speedX:(Math.random()-0.5)*0.4,speedY:(Math.random()-0.5)*0.4,opacity:Math.random()*0.5+0.2,originalX:Math.random()*canvas.width,originalY:Math.random()*canvas.height})}}
+        function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach((p,i)=>{const dxMouse=mouseX-p.x,dyMouse=mouseY-p.y,distMouse=Math.sqrt(dxMouse*dxMouse+dyMouse*dyMouse);if(distMouse<150&&distMouse>0){p.x+=dxMouse*0.01;p.y+=dyMouse*0.01}else{p.x+=(p.originalX-p.x)*0.02;p.y+=(p.originalY-p.y)*0.02}p.x+=p.speedX;p.y+=p.speedY;if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;p.originalX+=p.speedX;p.originalY+=p.speedY;if(p.originalX<0)p.originalX=canvas.width;if(p.originalX>canvas.width)p.originalX=0;if(p.originalY<0)p.originalY=canvas.height;if(p.originalY>canvas.height)p.originalY=0;ctx.beginPath();ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);ctx.fillStyle=`rgba(200,150,62,${p.opacity})`;ctx.fill();for(let j=i+1;j<particles.length;j++){const dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<100){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(200,150,62,${0.06*(1-dist/100)})`;ctx.lineWidth=0.5;ctx.stroke()}}});animationId=requestAnimationFrame(animateParticles)}initParticles();animateParticles()}
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = parseInt(dot.dataset.index);
-                if (index === currentSlide) return;
-                goToSlide(index);
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, slideDuration);
-            });
-        });
+        const lazyImages=document.querySelectorAll('img.lazy');
+        const imageObserver=new IntersectionObserver((entries,observer)=>{entries.forEach(entry=>{if(entry.isIntersecting){const img=entry.target;if(img.dataset.src){img.src=img.dataset.src;img.onload=()=>img.classList.add('loaded');img.onerror=()=>{img.classList.add('loaded')}}observer.unobserve(img)}})},{rootMargin:'200px 0px',threshold:0.01});
+        lazyImages.forEach(img=>imageObserver.observe(img));
 
-        const heroSection = document.querySelector('.hero');
-        if (heroSection) {
-            heroSection.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            heroSection.addEventListener('mouseleave', () => {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, slideDuration);
-            });
-        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){const targetId=this.getAttribute('href');if(targetId==='#')return;const target=document.querySelector(targetId);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
-        // Touch swipe
-        let touchStartX = 0;
-        let touchEndX = 0;
-        if (heroSection) {
-            heroSection.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-            
-            heroSection.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    clearInterval(slideInterval);
-                    if (diff > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                    slideInterval = setInterval(nextSlide, slideDuration);
-                }
-            });
-        }
-
-        // Keyboard
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                clearInterval(slideInterval);
-                nextSlide();
-                slideInterval = setInterval(nextSlide, slideDuration);
-            } else if (e.key === 'ArrowLeft') {
-                clearInterval(slideInterval);
-                prevSlide();
-                slideInterval = setInterval(nextSlide, slideDuration);
-            }
-        });
-
-        // ============ NAVBAR SCROLL ============
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, { passive: true });
-
-        // ============ MOBILE NAV (FIXED - uses 100dvh, proper toggle anywhere) ============
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-        const navOverlay = document.getElementById('navOverlay');
-        
-        function openNav() {
-            navLinks.classList.add('active');
-            if (navOverlay) navOverlay.classList.add('active');
-            const icon = mobileToggle.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            document.body.style.top = `-${window.scrollY}px`;
-        }
-        
-        function closeNav() {
-            navLinks.classList.remove('active');
-            if (navOverlay) navOverlay.classList.remove('active');
-            const icon = mobileToggle.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-            const scrollY = document.body.style.top;
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
-            document.body.style.top = '';
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            }
-        }
-        
-        mobileToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (navLinks.classList.contains('active')) {
-                closeNav();
-            } else {
-                openNav();
-            }
-        });
-        
-        if (navOverlay) {
-            navOverlay.addEventListener('click', closeNav);
-        }
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeNav();
-            });
-        });
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                closeNav();
-            }
-        });
-
-        // ============ PARTICLE CANVAS (HERO) ============
-        const canvas = document.getElementById('particleCanvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let animationId;
-            let mouseX = -1000;
-            let mouseY = -1000;
-
-            function resizeCanvas() {
-                const parent = canvas.parentElement;
-                canvas.width = parent.offsetWidth;
-                canvas.height = parent.offsetHeight;
-            }
-            resizeCanvas();
-            
-            let resizeDebounce;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeDebounce);
-                resizeDebounce = setTimeout(() => {
-                    resizeCanvas();
-                    initParticles();
-                }, 200);
-            });
-
-            const heroEl = canvas.parentElement;
-            heroEl.addEventListener('mousemove', (e) => {
-                const rect = canvas.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-            });
-            heroEl.addEventListener('mouseleave', () => {
-                mouseX = -1000;
-                mouseY = -1000;
-            });
-
-            function initParticles() {
-                particles = [];
-                const area = canvas.width * canvas.height;
-                const count = Math.min(80, Math.max(30, Math.floor(area / 15000)));
-                for (let i = 0; i < count; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        radius: Math.random() * 2 + 0.5,
-                        speedX: (Math.random() - 0.5) * 0.4,
-                        speedY: (Math.random() - 0.5) * 0.4,
-                        opacity: Math.random() * 0.5 + 0.2,
-                        originalX: Math.random() * canvas.width,
-                        originalY: Math.random() * canvas.height,
-                    });
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach((p, i) => {
-                    const dxMouse = mouseX - p.x;
-                    const dyMouse = mouseY - p.y;
-                    const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                    if (distMouse < 150 && distMouse > 0) {
-                        p.x += dxMouse * 0.01;
-                        p.y += dyMouse * 0.01;
-                    } else {
-                        p.x += (p.originalX - p.x) * 0.02;
-                        p.y += (p.originalY - p.y) * 0.02;
-                    }
-
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    
-                    if (p.x < 0) p.x = canvas.width;
-                    if (p.x > canvas.width) p.x = 0;
-                    if (p.y < 0) p.y = canvas.height;
-                    if (p.y > canvas.height) p.y = 0;
-
-                    p.originalX += p.speedX;
-                    p.originalY += p.speedY;
-                    if (p.originalX < 0) p.originalX = canvas.width;
-                    if (p.originalX > canvas.width) p.originalX = 0;
-                    if (p.originalY < 0) p.originalY = canvas.height;
-                    if (p.originalY > canvas.height) p.originalY = 0;
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(200,150,62,${p.opacity})`;
-                    ctx.fill();
-
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = p.x - particles[j].x;
-                        const dy = p.y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(200,150,62,${0.06 * (1 - dist / 100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                });
-                animationId = requestAnimationFrame(animateParticles);
-            }
-
-            initParticles();
-            animateParticles();
-        }
-
-        // ============ LAZY LOADING ============
-        const lazyImages = document.querySelectorAll('img.lazy');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.onload = () => img.classList.add('loaded');
-                        img.onerror = () => {
-                            img.classList.add('loaded');
-                        };
-                    }
-                    observer.unobserve(img);
-                }
-            });
-        }, { rootMargin: '200px 0px', threshold: 0.01 });
-
-        lazyImages.forEach(img => imageObserver.observe(img));
-
-        // ============ SMOOTH SCROLL ============
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        console.log('%c PY Digital Legacy %c Loaded Successfully ',
-            'background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;',
-            'background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
-        console.log('%c Built by Triangle Tech %c • %c Pastor Yomi Okewunmi',
-            'color:#C8963E;', '', 'color:#0D6B4A;');
-        console.log('%c PhD Researcher %c • %c Ethics, Migration & African Development',
-            'color:#D4A84B;', '', 'color:#1A8B63;');
+        console.log('%c PY Digital Legacy %c Loaded Successfully ','background:#1A0F2E;color:#C8963E;padding:8px 12px;font-size:13px;border-radius:4px 0 0 4px;','background:#C8963E;color:#1A0F2E;padding:8px 12px;font-size:13px;border-radius:0 4px 4px 0;');
     </script>
 </body>
 </html>
